@@ -18,6 +18,18 @@ type DoublyLinkedList struct {
 	Last  *DoublyLinkedListNode
 }
 
+// just for testing only.
+func (DLinkedList *DoublyLinkedList) Values() []int {
+	valuesList := []int{}
+	current := DLinkedList.First
+	for current != nil {
+		valuesList = append(valuesList, current.Value)
+		current = current.Next
+    }
+	fmt.Print(valuesList)
+	return valuesList
+}
+
 // Print out the values of the Doubly Linked list
 // returns error if the list is not exists or the list is not connected
 func (DLinkedList *DoublyLinkedList) PrintValues() error {
@@ -114,6 +126,7 @@ func (DLinkedList *DoublyLinkedList) GetAt(Index int) (int, error) {
 	return node.Value, nil
 }
 
+// This function insert the number i in to the first of DLinkedList
 func (DLinkedList *DoublyLinkedList) InsertFirst(i int) {
 	newNode := DLinkedList.CreateNode(i)
 	// if the list is an empty one just make the list first to the added node.
