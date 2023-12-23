@@ -8,32 +8,31 @@ import (
 // definition of a doubly linked-list node
 type DoublyLinkedListNode struct {
 	Value int
-	Next *DoublyLinkedListNode
-	Prev *DoublyLinkedListNode
+	Next  *DoublyLinkedListNode
+	Prev  *DoublyLinkedListNode
 }
 
 // linked-list identifier
 type DoublyLinkedList struct {
 	First *DoublyLinkedListNode
-	Last *DoublyLinkedListNode
+	Last  *DoublyLinkedListNode
 }
-
 
 // Print out the values of the Doubly Linked list
 // returns error if the list is not exists or the list is not connected
-func (DLinkedList *DoublyLinkedList) PrintValues() (error){
+func (DLinkedList *DoublyLinkedList) PrintValues() error {
 	// if the list is the empty
-	if DLinkedList == nil{
+	if DLinkedList == nil {
 		err := errors.New("DoublyLinkedList not exists.")
 		return err
-	// if the list is not connected
+		// if the list is not connected
 	} else if DLinkedList.First == nil {
 		err := errors.New("DoublyLinkedList index out of range.")
 		return err
 	} else {
 		current := DLinkedList.First
 		for current != nil {
-			fmt.Print(current.Value," ")
+			fmt.Print(current.Value, " ")
 			current = current.Next
 		}
 		fmt.Println()
@@ -45,8 +44,8 @@ func (DLinkedList *DoublyLinkedList) PrintValues() (error){
 func (DoublyLinkedList *DoublyLinkedList) CreateNode(n int) *DoublyLinkedListNode {
 	return &DoublyLinkedListNode{
 		Value: n,
-		Next: nil,
-		Prev: nil,
+		Next:  nil,
+		Prev:  nil,
 	}
 }
 
@@ -66,7 +65,7 @@ func (DoublyLinkedList *DoublyLinkedList) LaterNode(n int) *DoublyLinkedListNode
 
 // Add a new DoublyLinkedListNode to the DoublyLinkedList.
 // Takes a parameter to add as a value.
-func (DLinkedList *DoublyLinkedList) InsertLast(i int){
+func (DLinkedList *DoublyLinkedList) InsertLast(i int) {
 	newNode := DLinkedList.CreateNode(i)
 	// if the list is an empty one just make the list first to the added node.
 	if DLinkedList.Last == nil {
@@ -80,7 +79,7 @@ func (DLinkedList *DoublyLinkedList) InsertLast(i int){
 
 // Build a new DoublyLinkedList for the given int slice if the DoublyLinkedList is
 // not created yet create a new DoublyLinkedList identifier
-func (DLinkedList *DoublyLinkedList) Build(values []int) *DoublyLinkedList{
+func (DLinkedList *DoublyLinkedList) Build(values []int) *DoublyLinkedList {
 	firstNode := DoublyLinkedListNode{Value: values[0], Next: nil, Prev: nil}
 	DLinkedList.First = &firstNode
 	DLinkedList.Last = DLinkedList.First
@@ -106,7 +105,7 @@ func (DLinkedList *DoublyLinkedList) SetAt(Index int, newValue int) error {
 
 // Get the value of DoublyLinkedList's Index.
 // returns an error if the Index is out of range
-func (DLinkedList *DoublyLinkedList) GetAt(Index int) (int, error){
+func (DLinkedList *DoublyLinkedList) GetAt(Index int) (int, error) {
 	node := DLinkedList.LaterNode(Index)
 	if node == nil {
 		err := errors.New("DoublyLinkedList index out of range")
@@ -129,8 +128,8 @@ func (DLinkedList *DoublyLinkedList) InsertFirst(i int) {
 
 // DeleteFirst delete the first element of the doubly linked list
 // and returns the deleted value.
-func (DLinkedList *DoublyLinkedList) DeleteFirst() (int, error){
-	if DLinkedList.First == nil{
+func (DLinkedList *DoublyLinkedList) DeleteFirst() (int, error) {
+	if DLinkedList.First == nil {
 		err := errors.New("DoublyLinkedList index out of range")
 		return 0, err
 	}
@@ -170,7 +169,7 @@ func (DLinkedList *DoublyLinkedList) DeleteLast() (int, error) {
 // Remove the elements between the startNode and endNode inclusively using memory address.
 // and returns the removed elements in a new doubly linked list
 // in the process removed the elements from the original doubly linked list
-func (DLinkedList *DoublyLinkedList) Remove(startNode *DoublyLinkedListNode, endNode *DoublyLinkedListNode) *DoublyLinkedList{
+func (DLinkedList *DoublyLinkedList) Remove(startNode *DoublyLinkedListNode, endNode *DoublyLinkedListNode) *DoublyLinkedList {
 	// initialize a new doubly linked list
 	NewDlinkedList := &DoublyLinkedList{First: DLinkedList.First, Last: DLinkedList.Last}
 	NewDlinkedList.First = startNode
@@ -179,9 +178,9 @@ func (DLinkedList *DoublyLinkedList) Remove(startNode *DoublyLinkedListNode, end
 	// if this is the startNode is the first element
 	// there's nothing left before the startNode
 	if startNode == DLinkedList.First {
-		DLinkedList.First =  endNode.Next
-	// else something left, join the node before
-	// startNode to the endNode's Next
+		DLinkedList.First = endNode.Next
+		// else something left, join the node before
+		// startNode to the endNode's Next
 	} else {
 		startNode.Prev.Next = endNode.Next
 	}
@@ -190,8 +189,8 @@ func (DLinkedList *DoublyLinkedList) Remove(startNode *DoublyLinkedListNode, end
 	// there's nothing left after the endNode
 	if endNode == DLinkedList.Last {
 		DLinkedList.Last = startNode.Prev
-	// there's something left after the endNode
-	// Join endnode's next to the startNode's previous
+		// there's something left after the endNode
+		// Join endnode's next to the startNode's previous
 	} else {
 		endNode.Next.Prev = startNode.Prev
 	}
@@ -213,7 +212,7 @@ func (DLinkedList *DoublyLinkedList) Splice(node *DoublyLinkedListNode, NewDLink
 
 	a := NewDLinkedList.First
 	b := NewDLinkedList.Last
-	NewDLinkedList.First = nil	
+	NewDLinkedList.First = nil
 	NewDLinkedList.Last = nil
 
 	a.Prev = node

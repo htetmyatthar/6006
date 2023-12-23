@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"github.com/htetmyatthar/6006/ps1-template/doubly_linked_list"
+	"log"
 )
 
 func main() {
@@ -70,7 +70,7 @@ func main() {
 	}
 
 	fmt.Println("Removed from 1st to 3rd element and return the the items in a new DLinkedList")
-	RemovedList := newLinkedList.Remove(newLinkedList.LaterNode(1),newLinkedList.LaterNode(3))
+	RemovedList := newLinkedList.Remove(newLinkedList.LaterNode(1), newLinkedList.LaterNode(3))
 	err = RemovedList.PrintValues()
 	if err != nil {
 		fmt.Println(err)

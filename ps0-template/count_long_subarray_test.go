@@ -44,6 +44,6 @@ func runTest(t *testing.T, testData [][]int) {
 	expected := testData[1][0]
 
 	if result != expected {
-		t.Errorf("%v returned %d, expected %d",testData[0], result, expected)
+		t.Errorf("%v returned %d, expected %d", testData[0], result, expected)
 	}
 }
