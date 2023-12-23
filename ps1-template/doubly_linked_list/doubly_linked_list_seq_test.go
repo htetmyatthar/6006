@@ -4,13 +4,13 @@ import (
 	"testing"
 )
 
-var testStartValue =[]int{1, 2, 3, 4, 5} 
+var testStartValue = []int{1, 2, 3, 4, 5}
 
 func TestDllBuild(t *testing.T) {
 	dll := prepare()
 	result := dll.Values()
 	expected := testStartValue
-	if !compareSlices(result, expected){
+	if !compareSlices(result, expected) {
 		t.Errorf("returned %d, expected %d", result, expected)
 	}
 }
@@ -39,7 +39,7 @@ func TestDeleteLast(t *testing.T) {
 		t.Error(err)
 	}
 	expected := 5
-	if result != expected{
+	if result != expected {
 		t.Errorf("returned %d, expected %d", result, expected)
 	}
 	result1 := dll.Values()
@@ -102,7 +102,7 @@ func TestRemove(t *testing.T) {
 	removedDll := dll.Remove(dll.LaterNode(2), dll.LaterNode(3))
 	result := removedDll.Values()
 	expected := []int{3, 4}
-	if !compareSlices(result, expected){
+	if !compareSlices(result, expected) {
 		t.Errorf("returned %d, expected %d", result, expected)
 	}
 }
@@ -123,7 +123,7 @@ func TestSplice(t *testing.T) {
 	}
 }
 
-func compareSlices(first []int, second []int) bool{
+func compareSlices(first []int, second []int) bool {
 	for i, value := range first {
 		if value != second[i] {
 			return false
@@ -132,7 +132,7 @@ func compareSlices(first []int, second []int) bool{
 	return true
 }
 
-func prepare() *DoublyLinkedList{
+func prepare() *DoublyLinkedList {
 	dll := &DoublyLinkedList{}
 	dll.Build(testStartValue)
 	return dll
