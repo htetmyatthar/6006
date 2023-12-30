@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -g
 
-TARGET = main
+TARGET = count_long_sub_array
 SRC_FILES = main.c utils.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
