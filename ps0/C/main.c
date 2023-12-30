@@ -27,7 +27,7 @@ int main(void){
 
 	int wants[] = {4, 2, 3, 2, 1};
 
-	int count;
+	int count = 0;
 	int length_results = sizeof(results) / sizeof(results[0]);
 	for (int j = 0; j < length_results; j++)
 	{
@@ -39,4 +39,5 @@ int main(void){
 		}
 	}
 	printf("5 Tests run. %i good.\n", TESTCASECOUNT - count );
+	return 0;
 }

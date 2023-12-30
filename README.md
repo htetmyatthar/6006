@@ -5,6 +5,8 @@ I will use mostly Python and Golang for this and occassionally C if I am really 
 I am trying to learn Golang using this course as my guide.
 # Testing
 Everything will be tested. And you can find that in seperate test files.
+For C, memory leaks are detected by valgrind. For Golang, go fmt tool is used to format.
+For Python, black formatter is used.
 
 # Model of Computation
 Specification for what operations on the machine can be performed in O(1) time.
