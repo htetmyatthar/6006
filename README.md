@@ -18,16 +18,16 @@ In this code base, the WORD-RAM is used.
 - Memory: Addressable sequence of machine words
 
 - Processor supports many constant time operations on a O(1) number of words(integer):
-    1) integer arithmethic:(+, -, *, //, %)
+    - integer arithmethic:(+, -, *, //, %)
 
-    2) logical operators:(&&, ||, !, ==, <, >, <=, =>)
+    - logical operators:(&&, ||, !, ==, <, >, <=, =>)
 
-    3) bitwise arithmetic: (&, |, <<, >>, ...)
+    - bitwise arithmetic: (&, |, <<, >>, ...)
 
-    4) Given word n, can read word at address n, write word to address n
+    - Given word n, can read word at address n, write word to address n
 
 - Memory address must be able to access every place in memory
 
     - Requirement: a >= # bits to represent largest memory address, i.e., log base 2 of n
     
-    - 32-bit words --> max~4GB memory, 64-bit words --> max~16exabytes of memory
+    - 32-bit words --> max\~4GB memory, 64-bit words --> max\~16exabytes of memory
