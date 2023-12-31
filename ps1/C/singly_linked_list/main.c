@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 void print_results(int array[], int length);
+void print_hr();
 
 int ELEMENTCOUNT = 7;
 
@@ -37,7 +38,38 @@ void print_results(int array[], int length)
 	// print the linked_list
 	printf("\nResults: \n");
 	print_list(list);
+	print_hr();
+
+	// testing the set_at function
+	printf("Set the 5th index number 0");
+	set_at(list, 5, 0);
+	printf("\nResults: \n");
+	print_list(list);
+	print_hr();
+
+	// testing the get_at function
+	printf("Get the 6th index number");
+	node *node_acquire = get_at(list, 6);
+	printf("\nResults: %i\n", node_acquire->number);
+	print_list(list);
+	print_hr();
+
+	// testing the delete first function
+	printf("Delete first item");
+	node *new_list = delete_first(list);
+	printf("\nResults: \n");
+	print_list(new_list);
+	print_hr();
 
 	// free the memory
-	free_list(list);
+	free_list(new_list);
+}
+
+void print_hr()
+{
+	for (int i = 0; i < 10; i++)
+	{
+		printf("------");
+	}
+	printf("\n");
 }
