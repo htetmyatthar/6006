@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/htetmyatthar/6006/ps1-template/doubly_linked_list"
 	"log"
 )
 

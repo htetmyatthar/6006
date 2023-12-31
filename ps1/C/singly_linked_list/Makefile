@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -g
 
-TARGET = doubly_linked_list
+TARGET = singly_linked_list
 SRC_FILES = main.c utils.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
