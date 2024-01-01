@@ -1,9 +1,9 @@
-# Selection sort
-This is the section for creating selection sort.
+# Insertion sort
+This is the section for creating insertion sort.
 
 ## File structure
-- main.c file contains the usage of selection sort.
-- utils.c file contains implementation for selection sort.
+- main.c file contains the usage of insertion sort.
+- utils.c file contains implementation for insertion sort.
 - utils.h file contains the header functions for the main.c file.
 - Makefile contains the command line configuration of the whole program.
 
@@ -12,15 +12,16 @@ This is the section for creating selection sort.
 
 ## Pseudocode
 ```
-For i from 0 to n–1
-    Find smallest number between numbers[i] and numbers[n-1]
-    Swap smallest number with numbers[i]
+For i from 1 to n - 1
+	j = i
+	If there's still items to check(j > 0) and those items are bigger than the current item.
+		Swap the current item and the 
+		Decrement j
 ```
-Reference: [CS50](https://cs50.harvard.edu/x/2023/notes/3/#sorting)
 
 ## Interface
 
-- selection_sort function sorts the given array.
+- insertion_sort function sorts the given array.
 
 ## Implementation
 
@@ -32,11 +33,11 @@ will compile the source file to the machine code.
 
 Unlike python and go, we have to do memory management manually. You can use **valgrind** tool to check the memory leaks while running the program as follows:
 ```bash
-valgrind --leak-check=full ./selection_sort
+valgrind --leak-check=full ./insertion_sort
 ```
 
 Running the machine code is like running the tests.
 ```bash
-./selection_sort
+./insertion_sort
 ``` 
 Depending on your os, and your computer, the commands might be a little different.

@@ -30,3 +30,6 @@ node* get_at(dll *list, int index);
 
 // splice_list connect the another_list to the list's list_index_node emptying the another list.
 void splice_list(dll *list, node *list_index_node, dll *another_list);
+
+// create_node creates a new node with the given value.
+node* create_node(int value);
