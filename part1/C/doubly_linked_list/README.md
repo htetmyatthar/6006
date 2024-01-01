@@ -40,7 +40,7 @@ will compile and link all the source file to the executable.
 
 Unlike python and go, we have to do memory management manually. You can use **valgrind** tool to check the memory leaks while running the program as follows:
 ```bash
-valgrind ./doubly_linked_list
+valgrind --leak-check=full ./doubly_linked_list
 ```
 Running the machine code is like running the tests.
 ```bash
