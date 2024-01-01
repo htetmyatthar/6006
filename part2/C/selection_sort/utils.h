@@ -1,1 +1,1 @@
-void selection_sort(int array[]);
+void selection_sort(int array[], int length);

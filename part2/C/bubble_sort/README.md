@@ -38,6 +38,6 @@ valgrind --leak-check=full ./bubble_sort
 
 Running the machine code is like running the tests.
 ```bash
-./singly_linked_list
+./bubble_sort
 ``` 
 Depending on your os, and your computer, the commands might be a little different.
