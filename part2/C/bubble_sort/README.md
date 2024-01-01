@@ -8,7 +8,7 @@ This is the section for creating bubble sort.
 - Makefile contains the command line configuration of the whole program.
 
 ## Specification
-- impelement a sorting algorithm that has the runtime of O(n^2).
+- impelement a sorting algorithm that has the runtime of O($n^2$).
 
 ## Pseudocode
 
