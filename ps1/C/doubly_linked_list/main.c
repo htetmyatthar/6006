@@ -67,6 +67,15 @@ void print_results(int values[], int length)
 	print_list(remove_end_list);
 	print_hr();
 
+	printf("original list and removed part: \n");
+	print_list(new_list);
+	printf("\t");
+	print_list(remove_end_list);
+	printf("Splice the latest remove part to index 1:\n");
+	splice_list(new_list, get_at(new_list, 1), remove_end_list);
+	print_list(new_list);
+	print_hr();
+
 	// free the memory that is used during the program.
 	// order matters , we free the list first, then the struct that is marking the list.
 	free_list(list);

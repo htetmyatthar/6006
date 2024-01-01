@@ -159,7 +159,6 @@ int delete_last(dll *list)
 // part(b) Given two nodes x1 and x2 from dll. consider x1 occurs before x2
 // constant time algorithm to remove all nodes from x1 to x2 inclsive.
 // return them as a new doubly linked list.
-
 dll* remove_nodes(dll *list, node *start, node *end)
 {
 	if (list->head == NULL)
@@ -191,21 +190,32 @@ dll* remove_nodes(dll *list, node *start, node *end)
 	{
 		end->next->prev = start->prev;
 	}
+
 	start->prev = NULL;
 	end->next = NULL;
-
 	return removed_dll;
 }
 
-/*
 
 //part(c) Given node x from a doubly linked-list and second doubly linked-list
 //constatnt time algorithm to splice second dll into first dll
 //frist dll should contain all items previously in either list
 // second dll should be empty
-
-dll* splice_list(dll *list, dll *another_list)
+void splice_list(dll *list, node *list_index_node, dll *another_list)
 {
-	return NULL;
+	if (list->head == NULL || list_index_node == NULL || another_list->head == NULL)
+	{
+		return;
+	}
+
+	// link the another list to the original list
+	another_list->tail->next = list_index_node->next;
+	another_list->head->prev = list_index_node;
+	// link the node to the another_list
+	list_index_node->next = another_list->head;
+
+	// empty the another_list
+	another_list->head = NULL;
+	another_list->tail = NULL;
+	return;
 }
-*/

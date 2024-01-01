@@ -17,3 +17,5 @@ void print_list(dll *list);
 void free_list(dll *list);
 
 node* get_at(dll *list, int index);
+
+void splice_list(dll *list, node *list_index_node, dll *another_list);
