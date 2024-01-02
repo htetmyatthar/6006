@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 // singly linked-list node
 typedef struct node 
 {

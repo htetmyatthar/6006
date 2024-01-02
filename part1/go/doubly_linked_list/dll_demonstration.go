@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	newLinkedList := &doubly_linked_list.DoublyLinkedList{First: nil, Last: nil}
+	newLinkedList := &DoublyLinkedList{First: nil, Last: nil}
 	values := []int{1, 3, 5, 2, 5}
 	newLinkedList.Build(values)
 	fmt.Print("build 1, 3, 5, 2, 5\n")
@@ -84,7 +84,7 @@ func main() {
 	spliceNode := newLinkedList.LaterNode(1)
 	fmt.Println("Splice Index Node's Value: ", spliceNode.Value)
 
-	spliceDLinkedList := &doubly_linked_list.DoublyLinkedList{First: nil, Last: nil}
+	spliceDLinkedList := &DoublyLinkedList{First: nil, Last: nil}
 	spliceValues := []int{11, 14, 16, 1, 9}
 	spliceDLinkedList.Build(spliceValues)
 	fmt.Print("build 11, 14, 1, 9\n")

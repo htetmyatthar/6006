@@ -21,7 +21,7 @@ Create a doubly linked list with the below specification.
 
 ## Interface
 - build function builds a new doubly linked-list with linear time complexity O(n).
-- print_list function prints the items inside the given doubly linked-list in linear time complexity, O(n).
+- print_list function prints the items inside the given doubly linked-list in linear time complexity, O(n). Also takes in context paramter that will prefix the items print and bool for adding visual line in the end.
 - free_list function frees the memory that is being allocated during the build process of the given doubly linked-list.
 - create_node function create a node and initialize the value with it and return the node.O(1)
 - get_at function gets the given doubly linked-list's indexed node in linear time complexity, O(n).

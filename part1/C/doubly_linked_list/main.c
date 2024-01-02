@@ -3,7 +3,6 @@
 #include "utils.h"
 
 void print_results(int values[], int length);
-void print_hr();
 
 int TESTCASECOUNT = 3;
 
@@ -29,52 +28,36 @@ void print_results(int values[], int length)
 	}
 	printf("\n");
 	
-	printf("Results: \n");
 	dll *list = build(values, length);
-	print_list(list);
-	print_hr();
+	print_list(list, "Results: \n", true);
 
-	printf("Inserting last: value 3\n");
 	dll *new_list = insert_last(list, 3);
-	print_list(new_list);
-	print_hr();
+	print_list(new_list, "Inserting last: value 3\n", true);
 
 	int deleted_first = delete_first(new_list);
-	print_list(new_list);
+	print_list(new_list, "", false);
 	printf("Deleted first: %i\n", deleted_first);
 	print_hr();
 
 	int deleted_last = delete_last(new_list);
-	print_list(new_list);
+	print_list(new_list, "", false);
 	printf("Deleted last: %i\n", deleted_last);
 	print_hr();
 
-	printf("original: \n");
-	print_list(new_list);
+	print_list(new_list, "original: \n", false);
 	dll *removed_list = remove_nodes(new_list, get_at(new_list, 3), get_at(new_list, 4));
-	printf("Removed original list from 3 to 4: \n");
-	print_list(new_list);
-	printf("Removed list: \n");
-	print_list(removed_list);
-	print_hr();
+	print_list(new_list, "Removed original list from 3 to 4: \n", false);
+	print_list(removed_list, "Removed list: \n", true);
 
-	printf("original: \n");
-	print_list(new_list);
+	print_list(new_list, "original: \n", false);
 	dll *remove_end_list = remove_nodes(new_list, get_at(new_list, 4), get_at(new_list, 4));
-	printf("Removed original list from 4 to 4: \n");
-	print_list(new_list);
-	printf("Removed end list: \n");
-	print_list(remove_end_list);
-	print_hr();
+	print_list(new_list, "Removed original list from 4 to 4: \n", false);
+	print_list(remove_end_list, "Removed end list: \n", true);
 
-	printf("original list and removed part: \n");
-	print_list(new_list);
-	printf("\t");
-	print_list(remove_end_list);
-	printf("Splice the latest remove part to index 1:\n");
+	print_list(new_list, "original list and removed part: \n", false);
+	print_list(remove_end_list, "\t", false);
 	splice_list(new_list, get_at(new_list, 1), remove_end_list);
-	print_list(new_list);
-	print_hr();
+	print_list(new_list, "Splice the latest remove part to index 1:\n", true);
 
 	// free the memory that is used during the program.
 	// order matters , we free the list first, then the struct that is marking the list.
@@ -88,11 +71,3 @@ void print_results(int values[], int length)
 	free(remove_end_list);
 }
 
-void print_hr()
-{
-	for (int i = 0; i < 10; i++)
-	{
-		printf("----");
-	}
-	printf("\n");
-}

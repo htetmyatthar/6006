@@ -3,7 +3,8 @@
 
 int TESTCASECOUNT = 5;
 
-int main(void){
+int main(void)
+{
 	int array[] = {11, 16, 10, 19, 20, 18, 3, 19, 2, 1, 8, 17, 7, 13, 1, 11, 1, 18, 19, 9, 7, 19, 24, 2, 12};
 	int array1[] = {2, 2, 4, 1, 4};
 	int array2[] = {7, 8, 5, 7, 7, 3, 2, 8};

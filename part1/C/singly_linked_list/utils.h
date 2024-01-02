@@ -1,4 +1,9 @@
-#include "singly.h"
+// nodes of a singly linked list.
+typedef struct node 
+{
+	int number;
+	struct node *next;
+}node;
 
 // build builds the singly linked-list given the numbers and length of the numbers.
 // returns the list.

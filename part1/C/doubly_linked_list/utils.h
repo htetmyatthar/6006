@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "stdbool.h"
 #include "doubly.h"
 
 // build create a new doubly linked-list and returns the list
@@ -20,7 +23,7 @@ dll* insert_last(dll *list, int value);
 dll* insert_first(dll *list, int value);
 
 // print_list prints out all the items in the doubly linked-list.
-void print_list(dll *list);
+void print_list(dll *list, char* context, bool line);
 
 // free_list frees all the memory that is allocated during the build process of the doubly linked-list.
 void free_list(dll *list);
@@ -33,3 +36,6 @@ void splice_list(dll *list, node *list_index_node, dll *another_list);
 
 // create_node creates a new node with the given value.
 node* create_node(int value);
+
+// prints the line for visual.
+void print_hr();

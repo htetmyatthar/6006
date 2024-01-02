@@ -1,18 +1,29 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "doubly.h"
-
+#include "utils.h"
 
 // doubly linked-list will not maintain the length of the list.
 
 // print_list function prints out the given doubly linked-list's item numbers.
-void print_list(dll *list)
+void print_list(dll *list, char* context, bool line)
 {
+	printf("%s", context);
 	node *finger = list->head;
 	while(finger != NULL)
 	{
 		printf("%i->", finger->number);
 		finger = finger->next;
+	}
+	printf("\n");
+	if (line == true)
+	{
+		print_hr();
+	}
+}
+
+void print_hr()
+{
+	for (int i = 0; i < 10; i++)
+	{
+		printf("----");
 	}
 	printf("\n");
 }
