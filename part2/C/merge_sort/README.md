@@ -1,4 +1,4 @@
-# Insertion sort
+# Merge sort
 This is the section for creating merge sort.
 
 ## File structure
