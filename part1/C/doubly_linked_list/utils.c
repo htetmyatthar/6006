@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "doubly.h"
 
-node* create_node(int value);
 
 // doubly linked-list will not maintain the length of the list.
 
