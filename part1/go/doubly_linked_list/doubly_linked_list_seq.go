@@ -25,7 +25,7 @@ func (DLinkedList *DoublyLinkedList) Values() []int {
 	for current != nil {
 		valuesList = append(valuesList, current.Value)
 		current = current.Next
-    }
+	}
 	fmt.Print(valuesList)
 	return valuesList
 }

@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestMergeSort(t *testing.T){
+func TestMergeSort(t *testing.T) {
 	// Test Case 1: Random unsorted integers
 	input1 := []int{38, 27, 43, 3, 9, 82, 10}
 	expected1 := []int{3, 9, 10, 27, 38, 43, 82}
@@ -32,14 +32,14 @@ func TestMergeSort(t *testing.T){
 	testCase(t, input5, expected5)
 }
 
-func testCase(t *testing.T, input []int, expected []int){
+func testCase(t *testing.T, input []int, expected []int) {
 	MergeSort(input)
-	if !reflect.DeepEqual(input, expected){
+	if !reflect.DeepEqual(input, expected) {
 		t.Errorf("Expected: %v but got %v", expected, input)
 	}
 }
 
-func TestMergeSortRange(t *testing.T){
+func TestMergeSortRange(t *testing.T) {
 	// Test Case 1: Random unsorted integers
 	input1 := []int{38, 27, 43, 3, 9, 82, 10}
 	expected1 := []int{38, 27, 3, 9, 43, 82, 10}
@@ -61,16 +61,16 @@ func TestMergeSortRange(t *testing.T){
 	testCase1(t, input4, expected4, 2, 5)
 
 	/*
-	// Test Case 5: Empty slice
-	input5 := []int{}
-	expected5 := []int{}
-	testCase1(t, input5, expected5, 2, 5)
+		// Test Case 5: Empty slice
+		input5 := []int{}
+		expected5 := []int{}
+		testCase1(t, input5, expected5, 2, 5)
 	*/
 }
 
-func testCase1(t *testing.T, input []int, expected []int, left int, right int){
+func testCase1(t *testing.T, input []int, expected []int, left int, right int) {
 	MergeSortRange(input, left, right)
-	if !reflect.DeepEqual(input, expected){
+	if !reflect.DeepEqual(input, expected) {
 		t.Errorf("Expected: %v, Result: %v", expected, input)
 	}
 }

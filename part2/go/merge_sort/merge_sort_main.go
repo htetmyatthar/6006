@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main(){
+func main() {
 	test_slice := []int{6, 2, 5, 1, 8}
 	fmt.Println("Original: \n", test_slice)
 	MergeSort(test_slice)
