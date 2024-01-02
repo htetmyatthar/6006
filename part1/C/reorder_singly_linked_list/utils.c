@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "utils.h"
 
+// builds the new singly linked-list.
 node* build(int values[], int length)
 {
 	node *list = NULL;
@@ -21,6 +22,7 @@ node* build(int values[], int length)
 	return list;
 }
 
+// frees the memeory that is allocated during the process of creating the given singly-linked-list.
 void free_list(node *list)
 {
 	node* finger = list;
@@ -33,6 +35,7 @@ void free_list(node *list)
 	return;
 }
 
+// reverse the last half of the given singly linked-list.
 void half_reverse(node *list, int length)
 {
 	if(length < 1 || list == NULL)
@@ -71,12 +74,15 @@ void half_reverse(node *list, int length)
 	// clean up the mess
 	// this is to make the first element of the second half as the last element.
 	// post_node is already NULL by the loop 
-	current->next->next = post_node;
+	// we can also make
+	// current->next->next= post_node;
+	current->next->next = NULL;
 	// this is to link between reversed and first half.
 	current->next = reverse_node;
 	return;
 }
 
+// prints out the item's value in the given  singly linked-list with the prefixed context.
 void print_list(node* list, char* context)
 {
 	printf("%s", context);
