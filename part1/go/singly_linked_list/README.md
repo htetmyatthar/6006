@@ -16,6 +16,7 @@ SLinkedList = singly linked list's head.
 - SLinkedList.SetAt sets the given index and value to the given singly linked-list in linear time complexity O(n).
 
 You can compile or run the source code using the `GO` tools from the directory of these go files.
+
 *E.g. 6006/part1/go/singly_linked_list$*
 
 *To compile source code*

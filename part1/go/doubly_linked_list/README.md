@@ -33,6 +33,7 @@ DLinkedList = doubly linked list's head
 - DLinkedList.Splice method splice the nodes from another doubly linked-list to the current one in constant time complexity O(1), making the another doubly linked-list empty.
 
 You can compile or run the source code using the `GO` tools from the directory of these go files.
+
 *E.g. 6006/part1/go/singly_linked_list$*
 
 *To compile source code*
