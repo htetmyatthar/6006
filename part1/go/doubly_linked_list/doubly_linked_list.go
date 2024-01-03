@@ -91,7 +91,7 @@ func (DLinkedList *DoublyLinkedList) InsertLast(i int) {
 
 // Build a new DoublyLinkedList for the given int slice if the DoublyLinkedList is
 // not created yet create a new DoublyLinkedList identifier
-func (DLinkedList *DoublyLinkedList) Build(values []int){
+func (DLinkedList *DoublyLinkedList) Build(values []int) {
 	length := len(values)
 	if length < 1 {
 		return
