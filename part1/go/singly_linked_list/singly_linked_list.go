@@ -1,3 +1,4 @@
+// Sinly linked list related operations and interface.
 package main
 
 import (
@@ -55,6 +56,9 @@ func (SLinkedList *SinglyLinkedList) laterNode(index int) (*SinglyLinkedListNode
 // Build method builds a new singly linked list
 // Returns No values to buiild a linked list error  if the values is empty.
 func (SLinkedList *SinglyLinkedList) Build(values []int) error {
+	if SLinkedList == nil {
+		return errors.New("Create a new struct to build.")
+	}
 	if len(values) < 0 {
 		return errors.New("No values to build a linked list.")
 	}

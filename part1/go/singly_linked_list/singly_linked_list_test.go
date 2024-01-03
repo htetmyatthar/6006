@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -107,7 +106,6 @@ func TestSinglyLinkedList(t *testing.T) {
 	values := []int{}
 	var finger1 *SinglyLinkedListNode = newList3.First
 	for finger1 != nil {
-		fmt.Println(finger1)
 		values = append(values, finger1.Value)
 		finger1 = finger1.Next
 	}
