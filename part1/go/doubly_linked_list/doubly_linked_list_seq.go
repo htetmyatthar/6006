@@ -91,16 +91,19 @@ func (DLinkedList *DoublyLinkedList) InsertLast(i int) {
 
 // Build a new DoublyLinkedList for the given int slice if the DoublyLinkedList is
 // not created yet create a new DoublyLinkedList identifier
-func (DLinkedList *DoublyLinkedList) Build(values []int) *DoublyLinkedList {
+func (DLinkedList *DoublyLinkedList) Build(values []int){
+	length := len(values)
+	if length < 1 {
+		return
+	}
 	firstNode := DoublyLinkedListNode{Value: values[0], Next: nil, Prev: nil}
 	DLinkedList.First = &firstNode
 	DLinkedList.Last = DLinkedList.First
 	// add the values to it
-	length := len(values)
 	for i := 1; i < length; i++ {
 		DLinkedList.InsertLast(values[i])
 	}
-	return DLinkedList
+	return
 }
 
 // Set newValue in DoublyLinkedList's Index returns error if there's no node
