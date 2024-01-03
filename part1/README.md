@@ -12,6 +12,7 @@ In this part we will explore, basic data structures and basic understanding of s
 
 ## GO
 - [doubly_linked_list](./go/doubly_linked_list)
+- [singly_linked_list](./go/singly_linked_list)
 
 ## Python3
 - [doubly_linked_list](./python/)
