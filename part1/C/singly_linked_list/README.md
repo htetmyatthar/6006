@@ -8,19 +8,19 @@ This is the section of singly linked-list.
 - Makefile contains the command line configuration of the whole program.
 
 ## Interface
-- bulid function builds a new singly linked-list with linear time complexity, O(n).
+- bulid function builds a new singly linked-list with linear time complexity, $O(n)$.
 
-- create_node function create a node and initialize the value with it and return the node.O(1)
+- create_node function create a node and initialize the value with it and return the node.$O(1)$
 
-- print_list function prints the items inside the given singly linked-list in linear time complexity, O(n).
+- print_list function prints the items inside the given singly linked-list in linear time complexity, $O(n)$.
 
 - free_list function frees the memory that is being allocated during the build process of the given singly linked-list.
 
-- set_at function set the given value to the given singly linked-list's index in linear time complexity, O(n).
+- set_at function set the given value to the given singly linked-list's index in linear time complexity, $O(n)$.
 
-- get_at function gets the given singly linked-list's indexd node in linear time complexity, O(n).
+- get_at function gets the given singly linked-list's indexd node in linear time complexity, $O(n)$.
 
-- delete_first function deletes the first item in the given singly linked-list in constant time complexity, O(1).
+- delete_first function deletes the first item in the given singly linked-list in constant time complexity, $O(1)$.
 
 You can compile the source code using the `Makefile`.
 ```bash

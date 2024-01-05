@@ -20,18 +20,18 @@ Create a doubly linked list with the below specification.
 - Makefile contains the command line confuguration of the whole program.
 
 ## Interface
-- build function builds a new doubly linked-list with linear time complexity O(n).
-- print_list function prints the items inside the given doubly linked-list in linear time complexity, O(n). Also takes in context paramter that will prefix the items print and bool for adding visual line in the end.
+- build function builds a new doubly linked-list with linear time complexity $O(n)$.
+- print_list function prints the items inside the given doubly linked-list in linear time complexity, $O(n)$. Also takes in context paramter that will prefix the items print and bool for adding visual line in the end.
 - free_list function frees the memory that is being allocated during the build process of the given doubly linked-list.
-- create_node function create a node and initialize the value with it and return the node.O(1)
-- get_at function gets the given doubly linked-list's indexed node in linear time complexity, O(n).
-- set_at function set the given value to the given doubly linked-list's index in linear time complexity, O(n).
-- insert_first function insert the node with the given value to the given doubly linked-list's head in constant time complexity, O(1).
-- insert_last function insert the node with the given value to the given doubly linked-list's tails in constant time complexity, O(1).
-- delete_first function deletes the head node of the given doubly linked-list in constant time complexity, O(1).
-- delete_last function deletes the tail node of the given doubly linked-list in constant time complexity, O(1).
-- remove_nodes function removes the nodes between the given start and end node of the given doubly linked-list in constant time complexity, O(1). Assuming the given start node comes before the end node.
-- splice_list function connects the given another doubly linked-list to the given doubly linked-list's index in constant time complexity, O(1). 
+- create_node function create a node and initialize the value with it and return the node.$O(1)$
+- get_at function gets the given doubly linked-list's indexed node in linear time complexity, $O(n)$.
+- set_at function set the given value to the given doubly linked-list's index in linear time complexity, $O(n)$.
+- insert_first function insert the node with the given value to the given doubly linked-list's head in constant time complexity, $O(1)$.
+- insert_last function insert the node with the given value to the given doubly linked-list's tails in constant time complexity, $O(1)$.
+- delete_first function deletes the head node of the given doubly linked-list in constant time complexity, $O(1)$.
+- delete_last function deletes the tail node of the given doubly linked-list in constant time complexity, $O(1)$.
+- remove_nodes function removes the nodes between the given start and end node of the given doubly linked-list in constant time complexity, $O(1)$. Assuming the given start node comes before the end node.
+- splice_list function connects the given another doubly linked-list to the given doubly linked-list's index in constant time complexity, $O(1)$.
 You can compile the souce code using the `Makefile`.
 ```bash
 make

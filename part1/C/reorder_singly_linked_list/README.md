@@ -16,10 +16,10 @@ This is a section of reordering the linked list using the practice problem from 
 - Makefile contains the command line configuration of the whole program.
 
 ## Interface
-- build function builds a new singly linked-list with linear time complexity O(n).
-- print_list function prints the items inside the given singly linked-list in linear time complexity O(n).
-- free_list function frees the memory that is being allocated during the build process of the given singly linked-list.
-- half_reverse function reverses the later half of the given singly linked-list in linear time complexity O(n).
+- build function builds a new singly linked-list with linear time complexity $O(n)$.
+- print_list function prints the items inside the given singly linked-list in linear time complexity $O(n)$.
+- free_list function frees the memory that is being allocated during the build process of the given singly linked-list in linear time complexity $O(n)$.
+- half_reverse function reverses the later half of the given singly linked-list in linear time complexity $O(n)$.
 
 You can compile the souce code using the `Makefile`.
 ```bash

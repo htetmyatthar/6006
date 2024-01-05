@@ -9,18 +9,18 @@ This is the section for creating dynamic array. This is a naiive implementation 
 
 ## Interface
 
-- build_d_array function builds a new dynamic array with the given values and the length(number of items) in linear time complexity O(n).
-- free_d_array function frees the memory that is being allocated during the build process of the given dynamic array in linear time constant time complexity O(1).
-- Print_both function prints both the underlying allocated memory and the items of the dynamic array in linear time complexity O(n).
-- print_d_array function prints the items of the dynamic array linear time complexity O(n).
-- print_all_d_array function prints all the underlying allocated memory in linear time complexity O(n).
+- build_d_array function builds a new dynamic array with the given values and the length(number of items) in linear time complexity $O(n)$.
+- free_d_array function frees the memory that is being allocated during the build process of the given dynamic array in linear time constant time complexity $O(1)$.
+- Print_both function prints both the underlying allocated memory and the items of the dynamic array in linear time complexity $O(n)$.
+- print_d_array function prints the items of the dynamic array linear time complexity $O(n)$.
+- print_all_d_array function prints all the underlying allocated memory in linear time complexity $O(n)$.
 - d_array_append function appends to the given dynamic array with the given value in **amortized constant time complexity** $O(1_{(a)})$.
 - d_array_prepend function prepends to the given dynamic array with the given value in **amortized constant time complexity** $O(1_{(a)})$.
 - d_array_deque function deques the first element of the given dynamic array in **amortized constant time complexity** $O(1_{(a)})$.
 - d_array_pop function pops the last element of the given dynamic array in **amortized constant time complexity** $O(1_{(a)})$.
-- set_at function sets the index of the given dynamic array with value in constant time complexity O(1).
-- get_at function gets the item of the given dynamic array's index in constant time complexity O(1). 
-- delete_at functions deletes the given dynamic array's item with the given index and returns a new array if the index is neither first or last element of the dynamic array in linear time complexity O(n).
+- set_at function sets the index of the given dynamic array with value in constant time complexity $O(1)$.
+- get_at function gets the item of the given dynamic array's index in constant time complexity $O(1)$. 
+- delete_at functions deletes the given dynamic array's item with the given index and returns a new array if the index is neither first or last element of the dynamic array in linear time complexity $O(n)$.
 
 You can compile the souce code using the `Makefile`.
 ```bash
