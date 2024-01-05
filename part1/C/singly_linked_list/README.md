@@ -10,7 +10,7 @@ This is the section of singly linked-list.
 ## Interface
 - bulid function builds a new singly linked-list with linear time complexity, $O(n)$.
 
-- create_node function create a node and initialize the value with it and return the node.$O(1)$
+- create_node function create a node and initialize the value with it and return the node, $O(1)$.
 
 - print_list function prints the items inside the given singly linked-list in linear time complexity, $O(n)$.
 
