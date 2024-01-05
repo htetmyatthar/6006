@@ -4,21 +4,31 @@ This is a section of reordering the linked list using the practice problem from 
 ## Specification
 
 - There's $2n$ number of students waiting in line.
+
 - Wants to reverse the linked list such that $n + 1$ to $2n$ is in reverse order.
+
 - Time complexity should be O(n).
+
 - No new linked list nodes or instantiate any new non-constant-sized data structures during it's operation.
+
 **If you interested in the question you can read it at the bottom of this file.**
 
 ## File structure
 - main.c file contains most of the usage of the reorder linked list code.
+
 - utils.c file contains *all* of the functions to create the singly linked list and reversing the half.
+
 - utils.h file contains the header functions for the main.c file.
+
 - Makefile contains the command line configuration of the whole program.
 
 ## Interface
 - build function builds a new singly linked-list with linear time complexity $O(n)$.
+
 - print_list function prints the items inside the given singly linked-list in linear time complexity $O(n)$.
+
 - free_list function frees the memory that is being allocated during the build process of the given singly linked-list in linear time complexity $O(n)$.
+
 - half_reverse function reverses the later half of the given singly linked-list in linear time complexity $O(n)$.
 
 You can compile the souce code using the `Makefile`.

@@ -3,8 +3,11 @@ This is the section of singly linked-list.
 
 ## File structure
 - main.c file contains most of the implemetation of the datastructure code.
+
 - utils.c file contains *all* of the functions to create the singly linked-list.
+
 - utils.h file contains the header functions for the main.c file.
+
 - Makefile contains the command line configuration of the whole program.
 
 ## Interface
