@@ -9,6 +9,7 @@ In this part, we will explore basic sorting and searching algorithms.
 - [bubble_sort](./C/bubble_sort)
 - [insertion_sort](./C/insertion_sort)
 - [merge_sort](./C/merge_sort)
+- [brick_blowing_problem](./C/brick_blowing_problem)
 
 ## GO
 - [merge_sort](./go/merge_sort)
