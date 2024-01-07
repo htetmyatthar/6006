@@ -33,6 +33,8 @@ Reference: [CS50](https://cs50.harvard.edu/x/2023/notes/3/#algorithms)
 
 - binary_search function search the function using divide and conquer method and has time complexity of $(O(log n)$.
 
+Note: Due to the nature of usefulness on searching large amount of items with binary search. I used the technique that won't cause integer overflow when calculating middle index.
+
 ## Implementation
 
 You can compile the source code using the `Makefile`.

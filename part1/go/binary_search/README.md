@@ -13,6 +13,8 @@ This is the section for creating binary search using golang.
 ## Interface
 - binary_search search the value in the given slice in $O(log n)$ time complexity.
 
+Note: Due to the nature of usefulness on searching large amount of items with binary search. I used the technique that won't cause integer overflow when calculating middle index.
+
 You can compile or run the source code using the `GO` tools from the directory of these go files.
 
 *E.g. 6006/part1/go/binary_search$*
