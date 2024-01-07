@@ -10,6 +10,19 @@ This is the section for creating binary search using golang.
 
 - implement a searching algorithm that has the $O(log n) time complexity.
 
+## Pseudocode
+```txt
+if no doors
+    return false
+if 50 is behind doors[middle]
+    return true
+else if 50 < door[middle]
+    search doors[0] through doors[middle - 1]
+else if 50 > door[middle]
+    search doors[middle + 1] trough doors[n - 1]
+```
+Reference: [CS50](https://cs50.harvard.edu/x/2023/notes/3/#algorithms)
+
 ## Interface
 - binary_search search the value in the given slice in $O(log n)$ time complexity.
 
@@ -52,3 +65,6 @@ go test .
 go doc -all
 ```
 Depending on your os, and your computer, the commands might be a little different.
+
+# References
+David J. Malan. CS50 Introduction to computer science. 2023. Harvard University: CS50,https://cs50.harvard.edu/x/
