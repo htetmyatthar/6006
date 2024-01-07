@@ -1,5 +1,6 @@
 #include "utils.h"
 
+// binary_search
 bool binary_search(int array[], int length, int value)
 {
 	int left = 0;
@@ -7,7 +8,7 @@ bool binary_search(int array[], int length, int value)
 
 	while (left <= right)
 	{
-		int middle = (left + right) / 2;
+		int middle = left + ((right - left) / 2);
 		if (array[middle] == value)
 		{
 			return true;
