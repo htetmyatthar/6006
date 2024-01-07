@@ -9,6 +9,7 @@ In this part we will explore, basic data structures and basic understanding of s
 - [doubly_linked_list](./C/doubly_linked_list)
 - [dynamic_array](./C/dynamic_array)
 - [reorder_singly_linked_list problem](./C/reorder_singly_linked_list)
+- [binary_search](./C/binary_search)
 
 ## GO
 - [doubly_linked_list](./go/doubly_linked_list)
