@@ -1,6 +1,5 @@
 #include "utils.h"
 
-// binary_search
 bool binary_search(int array[], int length, int value)
 {
 	int left = 0;
