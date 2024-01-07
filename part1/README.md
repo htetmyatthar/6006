@@ -15,6 +15,7 @@ In this part we will explore, basic data structures and basic understanding of s
 - [doubly_linked_list](./go/doubly_linked_list)
 - [singly_linked_list](./go/singly_linked_list)
 - [reorder_singly_linked_list_problem](./go/reorder_singly_linked_list)
+- [binary_search](./go/binary_search)
 
 ## Python3
 - [doubly_linked_list](./python/)
