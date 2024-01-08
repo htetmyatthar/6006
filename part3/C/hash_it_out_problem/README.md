@@ -52,3 +52,7 @@ Running the machine code is like running the tests.
 ./hash_it_out
 ```
 Depending on your os, and your computer, the commands might be a little bit different.
+
+# References
+
+Erik Demaine, Json Ku, Justin Solomon.MIT 6006 Introduction to algorithms. Spring2020. Massachusetts Institute of Technology: MIT OpenCouseWare, https://ocw.mit.edu/. License: Creative Commons BY-NC-SA.
