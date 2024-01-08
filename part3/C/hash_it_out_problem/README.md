@@ -5,10 +5,14 @@ This is the section for creating simple hash function problem that is in the pro
 ## Specification
 
 - Using the given array:
+
     **[67, 13, 49, 24, 40, 33, 58]**
 
 - Using the given hash functions:
+
     **$h(k) = (11k + 14)mod9$**
+
+- Implement a hash map.
 
 - Resolve the collisions using chaining method.
 
@@ -31,7 +35,7 @@ This is the section for creating simple hash function problem that is in the pro
 
 - hash_function function hashes the input value to the hashed value in constant time complexity $O(1)$.
 
-- find function finds the given value in the given hash table in**expected constant time complexity** $O(1_e)$.
+- find function finds the given value in the given hash table in **expected constant time complexity** $O(1_e)$.
 
 You can compile the souce code using the `Makefile`.
 ```bash
