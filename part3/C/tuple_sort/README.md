@@ -16,15 +16,15 @@ This section is for creating tuple sort using the direct access array sort as au
 
 ## Specification
 
-- Since using larger keys $u$ in direct access array sort is bad for $u = \omega(n^2) < n^2$?
+- Since using larger keys $u$ in direct access array sort is bad for $u = \Omega(n^2) < n^2$.
 
 - While representing the each key by tuple $(a, b)$ where $k = an + b$ and $0 \le b < n$.
 
-    - **This will result in $2$ digit base $n$. $a = k / 2 < n and b = (k mod n)$**
+    - **This will result in $2$ digit base $n$. $a = k / 2 < n \quad and \quad b = (k\> mod\> n)$**
 
 - Using the given array which there are no collisions of $a$ and $b$ for $a, b = divmod(k, n)$.
 
-    -**[17, 3, 24, 5, 11]**
+    - **[17, 3, 24, 5, 11]**
 
 - Implement tuple sort.
 
@@ -36,9 +36,9 @@ This section is for creating tuple sort using the direct access array sort as au
 
 ## Interface
 
-- tuple_sort function sorts the given array using the dirrect access array method in average linear time complexity $\theta(u) = \theta(n) if u = \theta(n)$.
+- tuple_sort function sorts the given array using the dirrect access array method in average linear time complexity $\theta(u) = \theta(n) \quad if \quad u = \theta(n)$.
 
-    - please do mind the limitations.
+    - **please do mind the limitations**
 
 - free_tuple_sort function frees the array of pointers to tuple in linear time complexity $O(n)$.
 
@@ -63,8 +63,8 @@ Depending on your os, and your computer, the commands might be a little bit diff
 tuple_sort sorts the given values array using the a, b = divmod(k, n)
 
 if the given values has:
-1. NO COLLIDING VALUES FOR (a).
-2. NO COLLIDING VALUES FOR (b).
+1. **NO COLLIDING VALUES FOR (a).**
+2. **NO COLLIDING VALUES FOR (b).**
 
 - if there are colliding values of a and b in the given array the program will crash since 
 - the auxillary sorts are implemented using the dynamic access array sort method.

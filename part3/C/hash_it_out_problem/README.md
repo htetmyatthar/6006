@@ -10,7 +10,7 @@ This is the section for creating simple hash function problem that is in the pro
 
 - Using the given hash functions:
 
-    **$h(k) = (11k + 14)mod9$**
+    **$h(k) = (11\>k + 14)\> mod \> 9$**
 
 - Implement a hash map.
 

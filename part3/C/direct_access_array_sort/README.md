@@ -14,7 +14,7 @@ This is the section for creating direct access array sort, that is described in 
 
 ## Specification
 
-- Implement a sorting algorithm that has the running time of $O(u)$.
+- Implement a sorting algorithm that has the running time of $O(u) = O(n)$ .
 
 ## Pseudocode
 
@@ -28,7 +28,7 @@ This is the section for creating direct access array sort, that is described in 
 
 ## Interface
 
-- DAA_sort function sorts the given array using the dirrect access array method in average linear time complexity $\theta(u) = \theta(n) if u = \theta(n)$.
+- DAA_sort function sorts the given array using the dirrect access array method in average linear time complexity $\theta(u) = \theta(n) \quad if \quad u = \theta(n)$.
 
 You can compile the souce code using the `Makefile`.
 ```bash
@@ -50,7 +50,7 @@ Depending on your os, and your computer, the commands might be a little bit diff
 
 - This sorting algorithm is only good if the key $u$ is equal to $n$.
 
-- if keys are in larger range, like $u = \omega(n^2) < n^2$ this sorting algorithm will take qudractic time complexity which is bad.
+- if keys are in larger range, like $u = \Omega(n^2) < n^2$ this sorting algorithm will take qudractic time complexity which is bad.
 
     - Consider the following $n$ items of array with keys $u$.
 
