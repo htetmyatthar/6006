@@ -8,7 +8,7 @@ This is the section for creating simple hash function problem that is in the pro
     **[67, 13, 49, 24, 40, 33, 58]**
 
 - Using the given hash functions:
-    **$h(k) = (11k + 14) mod 9$**
+    **$h(k) = (11k + 14)  mod  9$**
 
 - Resolve the collisions using chaining method.
 
