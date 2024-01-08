@@ -14,6 +14,10 @@ This is the section for creating direct access array sort, that is described in 
 
 ## Specification
 
+- Given the array **[5, 2, 7, 0, 4]**
+
+- Supposing all keys are unique non-negative integers in range ${0, ....., u - 1}$, so $n \le u$.
+
 - Implement a sorting algorithm that has the running time of $O(u) = O(n)$ .
 
 ## Pseudocode
@@ -54,7 +58,8 @@ Depending on your os, and your computer, the commands might be a little bit diff
 
     - Consider the following $n$ items of array with keys $u$.
 
-        - [17, 3, 24, 22, 12]
+        **[17, 3, 24, 5, 11]**
+
     This example show that we have to create a very large array that has atleast *24 + 1* items and we have to walk through it to sort.
 
 - we should use tuple sort or other kind of sort for that kind of problem.
