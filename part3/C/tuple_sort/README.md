@@ -16,6 +16,8 @@ This section is for creating tuple sort using the direct access array sort as au
 
 ## Specification
 
+- Supposing all keys are unique non-negative integers in range ${0, ....., u - 1}$, so $n \le u$.
+
 - Since using larger keys $u$ in direct access array sort is bad for $u = \Omega(n^2) < n^2$.
 
 - While representing the each key by tuple $(a, b)$ where $k = an + b$ and $0 \le b < n$.
@@ -69,6 +71,26 @@ if the given values has:
 - if there are colliding values of a and b in the given array the program will crash since 
 - the auxillary sorts are implemented using the dynamic access array sort method.
 - if the values in the given array are not less than length^2 the program will crash resulting in error.
+
+## Note
+
+- Many integers could have the same $a$ and $b$ value, even if input keys distinct.
+
+- Consider the following array:
+
+    **[17, 3, 24, 22, 12]**
+    
+    **[(3, 2), (0, 2), (4, 4), (4, 2), (2, 2)]
+
+- Since we used the direct access array sort as the **auxiliary sorting algorithm** we will crash if we sort this array.
+
+- **So we need to sort allowing *repeated keys* which preserves input order**.
+
+- **And we also want our sort to be *stable*: repeated keys appear in output in same order as input**.
+
+- **So we cannot use direct access array sort anymore since it cannot even sort arrays having repeated keys**.
+
+- **We should chain them instead of storing one by one just like hashing.**
 
 # References
 
