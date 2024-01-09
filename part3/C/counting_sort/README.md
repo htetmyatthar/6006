@@ -114,7 +114,7 @@ Depending on your os, and your computer, the commands might be a little bit diff
 
     - sort using the auxillary counting sort to sort tuples(a, b)
 
-- We should use [**radix sort**](./../radix_sort/) for that.
+- We should use [**radix sort**](/radix_sort/) for that.
 
 # References
 
