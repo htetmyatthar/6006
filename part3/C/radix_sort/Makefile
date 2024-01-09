@@ -1,9 +1,9 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -g
-# for math.h library
-# LDFLAGS = -lm
+for math.h library
+LDFLAGS = -lm
 
-TARGET = counting_sort
+TARGET = radix_sort
 SRC_FILES = main.c utils.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
