@@ -14,7 +14,7 @@ This is the section for impelementing counting sort in 2 different ways. In thes
 
 ## Specification
 
-- Supposing all keys are non-negative integers in range$0,......,u - 1$, so $n \le u$.
+- Supposing all keys are non-negative integers in range $0,......,u - 1$ , so $n \le u$.
 
 - Since using tuple sort can't handle the non-colliding keys,
 
@@ -114,7 +114,7 @@ Depending on your os, and your computer, the commands might be a little bit diff
 
     - sort using the auxillary counting sort to sort tuples(a, b)
 
-- We should use [**radix sort**](../radix_sort/) for that.
+- We should use [**radix sort**](./../radix_sort/) for that.
 
 # References
 
