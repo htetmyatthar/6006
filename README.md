@@ -38,7 +38,9 @@ In this code base, the WORD-RAM is used.
 # Cautions
 
 **Constants matter in algorithms**, you should never assume how fast or slow just judging by their runtimes on worst case(upper bound) ($O$), best cases(lower bound) ($\Omega$), or average cases(tight bound) ($\theta$).
-    **Don't get fooled by the runtimes, cruch the numbers**
+
+**Don't get fooled by the runtimes, cruch the numbers**
+
 All algorithms and data structures implemented in this are**not** fully optimized, but good enough for introducing the concepts and using it a bit.
 
 All algorithms and data strucutures should be implement, build and use**differently** based on **different use cases**.
