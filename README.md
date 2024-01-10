@@ -43,4 +43,4 @@ In this code base, the WORD-RAM is used.
 
 All algorithms and data structures implemented in this are **not** fully optimized, but good enough for introducing the concepts and using it a bit.
 
-All algorithms and data strucutures should be implement, build and use**differently** based on **different use cases**.
+All algorithms and data strucutures should be implement, build and use **differently** based on **different use cases**.
