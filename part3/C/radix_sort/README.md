@@ -62,10 +62,15 @@ Depending on your os, and your computer, the commands might be a little bit diff
 
 - This sorting algorithm solves *all* the problems that the other sorting algorithms faced.
     - [direct_access_array_sort](./direct_access_array_sort),
+
         which cannot sorts the keys efficiently when values of arrays are more than $n^2$.
+
     - [tuple_sort](./tuple_sort), 
+
         which cannot sorts the given array guareentee stablity, repeated keys
+
     - [counting_sort](./counting_sort)
+
         - counting_sort_trie which cannot sort large number of values efficiently due to too much memory usage.
 
         - counting_sort_chaining which cannot sort larger keys that are more than $n^2$ due to chaining.
