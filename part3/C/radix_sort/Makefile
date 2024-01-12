@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -g
-for math.h library
+# for math.h library
 LDFLAGS = -lm
 
 TARGET = radix_sort
