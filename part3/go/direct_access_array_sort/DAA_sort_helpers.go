@@ -28,6 +28,7 @@ func DAASort(values []int) error{
 	}
 
 	// sort the values's items.
+	// we don't have to initiate i since we are copying.
 	for _, value := range values{
 		bucketArray[value] = value
 	}
