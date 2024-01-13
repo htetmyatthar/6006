@@ -13,9 +13,9 @@ func DAASort(values []int) error{
 
 	// find the largest key in the values slice.
 	largestKey := -1;
-	for i := 0; i < length; i++{
-		if values[i] > largestKey{
-			largestKey = values[i]
+	for _, value := range values{
+		if value > largestKey{
+			largestKey = value
 		}
 	}
 
@@ -28,12 +28,13 @@ func DAASort(values []int) error{
 	}
 
 	// sort the values's items.
-	for i := 0; i < length; i++{
-		bucketArray[values[i]] = values[i]
+	for _, value := range values{
+		bucketArray[value] = value
 	}
 
 	// overwrite to original array the sorted order.
-	for i, j := 0, 0; i < maxKey; i++{
+	j := 0
+	for i := range bucketArray{
 		if bucketArray[i] > -1 {
 			values[j] = bucketArray[i]
 			j++
