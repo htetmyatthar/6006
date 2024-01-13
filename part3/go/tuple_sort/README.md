@@ -34,7 +34,7 @@ This section is for creating tuple sort using the direct access array sort as au
 
 ## Interface
 
-- TupleSort function sorts the given values array using the direct access array method in average linear time complexity $\theta(u) = \theta(n)$ if $u = \thera(n)$
+- TupleSort function sorts the given values array using the direct access array method in average linear time complexity $\theta(u) = \theta(n)$ if $u = \theta(n)$
     
     **This implementation has limitations.**
 
