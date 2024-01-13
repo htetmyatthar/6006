@@ -48,12 +48,10 @@ func (hm *HashMap) Create(values []int) error{
 		return errors.New("You have to initialize HashMap struct first.")
 	}
 
-	for i := 0; i < length; i++{
-		// hashing
-		hashedValue := hashFunction(values[i])
+	for _, value := range values{
+		hashedValue := hashFunction(value)
 
-		// linking
-		newNode := &Node{values[i], hm.Data[hashedValue]}
+		newNode := &Node{value, hm.Data[hashedValue]}
 		hm.Data[hashedValue] = newNode
 
 		// update the element count
