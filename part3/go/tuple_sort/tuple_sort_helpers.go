@@ -11,6 +11,9 @@ type Tuple struct{
 	Second int
 }
 
+// TupleSort sorts the given values array.
+// Returns error when the given values array is empty or the values(key) inside the values array
+// is more than length^2.
 func TupleSort(values []int) error{
 	length := len(values)
 	if length == 0{

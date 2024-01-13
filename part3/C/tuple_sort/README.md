@@ -22,7 +22,7 @@ This section is for creating tuple sort using the direct access array sort as au
 
 - While representing the each key by tuple $(a, b)$ where $k = an + b$ and $0 \le b < n$.
 
-    - **This will result in $2$ digit base $n$. $a = k / 2 < n \quad and \quad b = (k\> mod\> n)$**
+    - **This will result in $2$ digit base $n$. $a = k / 2 < n \quad and \quad b = (k\quad mod\quad n)$**
 
 - Using the given array which there are no collisions of $a$ and $b$ for $a, b = divmod(k, n)$.
 
