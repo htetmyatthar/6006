@@ -80,10 +80,9 @@ Depending on your os, and your computer, the commands might be a little differen
 
 ## Limitations
 
-TupleSort sorts the given values array using the formula $a, b = divmod(k, n)$
+- TupleSort sorts the given values array using the formula $a, b = divmod(k, n)$
 
-If the given values has:
-    
+- If the given values has:
     - 1.colliding values for $(a)$.
     - 2.colliding values for $(b)$.
     - If there are colliding values for both $a$ and $b$ in the given array, the program will crash since the auxillary sorts that are implemented are using the dynamic access array sort method.
