@@ -28,7 +28,7 @@ This is the section for creating radix sort after facing all the struggles in [D
 
 ## Interface
 
-- radix_sort function sorts the given arrays with the given length in linear time complexity $O(nc) = O(n)$ if $c$ is constant.
+- radix_sort function sorts the given arrays with the given length in linear time complexity $O(n + n log_n{u}) = O(n)$ if $c$ is constant and $u = O(n^c)$.
 
 - counting_sort function sorts the given array of pointers to the array in linear time complexity $O(n + u) = O(n)$ if $u \le O(n)$. This function act as an helper function for radix_sort function.
 

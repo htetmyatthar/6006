@@ -25,5 +25,46 @@ Reference: [CS50](https://cs50.harvard.edu/x/2023/notes/3/#merge-sort)
 - MergeSort function sorts the given array.
 - MergeSortRange function sorts the given array of given range.
 
+You can compile or run the source code using the `GO` tools from the directory of these go files.
+
+*E.g. 6006/part1/go/merge_sort$*
+
+*To compile source code*
+```bash
+go build .
+```
+
+*Running go binary*
+```bash
+./merge_sort
+```
+
+*To compile the tests*
+```bash
+go test -c
+```
+
+*Running test binary*
+```bash
+./merge_sort.test
+```
+
+*To run the source code without compiling*
+```bash
+go run .
+```
+
+*To run the tests without compiling*
+```bash
+go test .
+```
+
+*To check the documentation*
+```bash
+go doc -all
+```
+Depending on your os, and your computer, the commands might be a little different.
+
+
 ### Edge Cases
 - No error handling of index out of range error in MergeSortRange.
