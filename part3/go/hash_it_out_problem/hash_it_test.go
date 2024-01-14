@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func TestHashMapCreate(t *testing.T){
+func TestHashMapCreate(t *testing.T) {
 	givenArray := []int{67, 13, 49, 24, 40, 33, 58}
 	hm := NewHashMap(SizeOfHashMapArray)
 
@@ -12,12 +12,12 @@ func TestHashMapCreate(t *testing.T){
 		t.Errorf("Unexpected error: %v\n", err)
 	}
 
-	if hm.NumElements != expectedNumElements{
+	if hm.NumElements != expectedNumElements {
 		t.Errorf("Numelements, expected: %v, result: %v", expectedNumElements, hm.NumElements)
 	}
 
 	// Chech that each value in the array is in the hashmap
-	for _, value := range givenArray{
+	for _, value := range givenArray {
 		found, _ := hm.Find(value)
 		if !found {
 			t.Errorf("Value %d not found in the hashmap.\n", value)
@@ -28,12 +28,12 @@ func TestHashMapCreate(t *testing.T){
 	emptyArray := []int{}
 	hm = NewHashMap(SizeOfHashMapArray)
 	err = hm.Create(emptyArray)
-	if err == nil{
+	if err == nil {
 		t.Error("Expected error for an empty array, but no error occured.\n")
 	}
 }
 
-func TestHashMapFind(t *testing.T){
+func TestHashMapFind(t *testing.T) {
 	givenArray := []int{67, 13, 49, 24, 40, 33, 58}
 	hm := NewHashMap(SizeOfHashMapArray)
 	err := hm.Create(givenArray)
@@ -42,12 +42,12 @@ func TestHashMapFind(t *testing.T){
 	}
 
 	expectedNumElements := len(givenArray)
-	if hm.NumElements != expectedNumElements{
+	if hm.NumElements != expectedNumElements {
 		t.Errorf("Numelements, expected: %v, result: %v", expectedNumElements, hm.NumElements)
 	}
 
 	// Test Existing values
-	for _, value := range givenArray{
+	for _, value := range givenArray {
 		found, _ := hm.Find(value)
 		if !found {
 			t.Errorf("Value %d not found in the hashmap.\n", value)
@@ -69,12 +69,12 @@ func TestHashMapFind(t *testing.T){
 	}
 }
 
-func TestHashFunction(t *testing.T){
+func TestHashFunction(t *testing.T) {
 	// testing the hash function with the value 0.
 	givenInput := 0
 	expected := 5
 	hashedResult := hashFunction(givenInput)
-	if hashedResult != expected{
+	if hashedResult != expected {
 		t.Errorf("Expected: %v, hashed result: %v\n", expected, hashedResult)
 	}
 
@@ -82,7 +82,7 @@ func TestHashFunction(t *testing.T){
 	givenInput = 43
 	expected = 1
 	hashedResult = hashFunction(givenInput)
-	if hashedResult != expected{
+	if hashedResult != expected {
 		t.Errorf("Expected: %v, hashed result: %v\n", expected, hashedResult)
 	}
 }

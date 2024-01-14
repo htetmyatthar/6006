@@ -5,9 +5,9 @@ import (
 	"log"
 )
 
-const SizeOfHashMapArray int = 9;
+const SizeOfHashMapArray int = 9
 
-func main(){
+func main() {
 	givenArray := []int{67, 13, 49, 24, 40, 33, 58}
 	fmt.Println(givenArray)
 	hm := NewHashMap(SizeOfHashMapArray)

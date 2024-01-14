@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func TestCountingSortSum(t *testing.T){
+func TestCountingSortSum(t *testing.T) {
 	testCase := []int{7, 4, 9, 5, 2, 1, 8}
 	expectedResult := []int{1, 2, 4, 5, 7, 8, 9}
 
@@ -12,8 +12,8 @@ func TestCountingSortSum(t *testing.T){
 	}
 
 	// checking sorting
-	for i := 0; i < len(testCase); i++{
-		if testCase[i] != expectedResult[i]{
+	for i := 0; i < len(testCase); i++ {
+		if testCase[i] != expectedResult[i] {
 			t.Errorf("Sorting Failed. Index: %v, Expected: %v, Result: %v\n", i, expectedResult[i], testCase[i])
 		}
 	}
@@ -26,7 +26,7 @@ func TestCountingSortSum(t *testing.T){
 	}
 }
 
-func TestCountingSortChain(t *testing.T){
+func TestCountingSortChain(t *testing.T) {
 	testCase := []int{7, 4, 9, 5, 2, 1, 8}
 	expectedResult := []int{1, 2, 4, 5, 7, 8, 9}
 	err := CountingSortChain(testCase)
@@ -35,8 +35,8 @@ func TestCountingSortChain(t *testing.T){
 	}
 
 	// checking sorting
-	for i := 0; i < len(testCase); i++{
-		if testCase[i] != expectedResult[i]{
+	for i := 0; i < len(testCase); i++ {
+		if testCase[i] != expectedResult[i] {
 			t.Errorf("Sorting Failed. Index: %v, Expected: %v, Result: %v\n", i, expectedResult[i], testCase[i])
 		}
 	}
@@ -49,18 +49,18 @@ func TestCountingSortChain(t *testing.T){
 	}
 }
 
-func TestDupKeys(t *testing.T){
+func TestDupKeys(t *testing.T) {
 	// testinc countingsortsum with repeated keys.
 	repeatedElements := []int{3, 3, 1, 2, 2, 1}
 	expectedResult := []int{1, 1, 2, 2, 3, 3}
 	err := CountingSortChain(repeatedElements)
-	if err != nil{
+	if err != nil {
 		t.Errorf("Unexpected error: %v\n", err)
 	}
 
 	// checking sorting
-	for i := 0; i < len(repeatedElements); i++{
-		if repeatedElements[i] != expectedResult[i]{
+	for i := 0; i < len(repeatedElements); i++ {
+		if repeatedElements[i] != expectedResult[i] {
 			t.Errorf("Sorting Failed. Index: %v, Expected: %v, Result: %v\n", i, expectedResult[i], repeatedElements[i])
 		}
 	}
@@ -73,14 +73,14 @@ func TestDupKeys(t *testing.T){
 	}
 
 	// checking sorting
-	for i := 0; i < len(repeatedElements); i++{
-		if repeatedElements[i] != expectedResult[i]{
+	for i := 0; i < len(repeatedElements); i++ {
+		if repeatedElements[i] != expectedResult[i] {
 			t.Errorf("Sorting Failed. Index: %v, Expected: %v, Result: %v\n", i, expectedResult[i], repeatedElements[i])
 		}
 	}
 }
 
-func TestGiven (t *testing.T){
+func TestGiven(t *testing.T) {
 	// checking countingSortSum with the given array of values.
 	givenArray := []int{17, 3, 24, 22, 12}
 	expectedResult := []int{3, 12, 17, 22, 24}
@@ -89,8 +89,8 @@ func TestGiven (t *testing.T){
 		t.Errorf("Unexpected error: %v\n", err)
 	}
 
-	for i := 0; i < len(givenArray); i++{
-		if givenArray[i] != expectedResult[i]{
+	for i := 0; i < len(givenArray); i++ {
+		if givenArray[i] != expectedResult[i] {
 			t.Errorf("Sorting Failed. Index: %v, Expected: %v, Result: %v\n", i, expectedResult[i], givenArray[i])
 		}
 	}
@@ -102,8 +102,8 @@ func TestGiven (t *testing.T){
 		t.Errorf("Unexpected error: %v\n", err)
 	}
 
-	for i := 0; i < len(givenArray); i++{
-		if givenArray[i] != expectedResult[i]{
+	for i := 0; i < len(givenArray); i++ {
+		if givenArray[i] != expectedResult[i] {
 			t.Errorf("Sorting Failed. Index: %v, Expected: %v, Result: %v\n", i, expectedResult[i], givenArray[i])
 		}
 	}

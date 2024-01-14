@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func main(){
+func main() {
 	givenArray := []int{5, 2, 7, 0, 4}
 	fmt.Println("Original: \n", givenArray)
 	err := DAASort(givenArray)

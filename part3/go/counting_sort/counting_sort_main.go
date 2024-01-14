@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func main(){
+func main() {
 	givenArray := []int{17, 3, 24, 22, 12}
 	fmt.Println("Counting sorting using cumulative sum: \n", givenArray)
 	err := CountingSortSum(givenArray)

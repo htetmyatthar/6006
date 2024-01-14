@@ -64,7 +64,7 @@ Memory B is the one to use counting the least significant. Least significant is 
 ```
 **IDEA**: This might good for strings, due to 2 dimensional array.
 
-**Caution**: Although pseudocodes are for C programming language, you can reference it to implement it in golang.
+**Caution**: Although pseudocodes are for C programming language, you can reference it to implement these algorithms in golang.
 
 ## Implementation notes
 

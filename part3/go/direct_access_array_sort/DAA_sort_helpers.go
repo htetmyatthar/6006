@@ -4,7 +4,7 @@ import "errors"
 
 // DAASort sorts the given slice. Returns error if the given values slice is empty.
 // Only the values n_i >= 0 can be sorted with DAASort.
-func DAASort(values []int) error{
+func DAASort(values []int) error {
 	length := len(values)
 
 	if length == 0 {
@@ -12,9 +12,9 @@ func DAASort(values []int) error{
 	}
 
 	// find the largest key in the values slice.
-	largestKey := -1;
-	for _, value := range values{
-		if value > largestKey{
+	largestKey := -1
+	for _, value := range values {
+		if value > largestKey {
 			largestKey = value
 		}
 	}
@@ -29,13 +29,13 @@ func DAASort(values []int) error{
 
 	// sort the values's items.
 	// we don't have to initiate i since we are copying.
-	for _, value := range values{
+	for _, value := range values {
 		bucketArray[value] = value
 	}
 
 	// overwrite to original array the sorted order.
 	j := 0
-	for i := range bucketArray{
+	for i := range bucketArray {
 		if bucketArray[i] > -1 {
 			values[j] = bucketArray[i]
 			j++

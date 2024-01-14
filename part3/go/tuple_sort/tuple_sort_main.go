@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main(){
+func main() {
 	givenArray := []int{17, 3, 24, 5, 11}
 	fmt.Println(givenArray)
 	TupleSort(givenArray)
