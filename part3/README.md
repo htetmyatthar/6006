@@ -18,5 +18,7 @@ In this part we will explore hashing and it's properties plus some sorting algor
 - [hash_it_out_problem](./go/hash_it_out_problem)
 - [direct_access_array_sort](./go/direct_access_array_sort)
 - [tuple_sort](./go/tuple_sort)
+- [counting_sort](./go/counting_sort)
+- [radix_sort](./go/radix_sort)
 
 ## Python3
