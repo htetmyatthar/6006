@@ -5,9 +5,9 @@ import (
 	"log"
 )
 
-func main(){
+func main() {
 	// testing with a non-empty array
-	given_array := []int{1,10,5,9,2,4,8,7,6,0}
+	given_array := []int{1, 10, 5, 9, 2, 4, 8, 7, 6, 0}
 	fmt.Println("Original: \n", given_array)
 	err := BubbleSort(given_array)
 	if err != nil {

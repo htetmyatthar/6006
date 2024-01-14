@@ -1,12 +1,12 @@
 package main
 
 import (
-	"testing"
 	"reflect"
+	"testing"
 )
 
-func TestInsertionSort(t *testing.T){
-		testCases := []struct {
+func TestInsertionSort(t *testing.T) {
+	testCases := []struct {
 		name     string
 		input    []int
 		expected []int
@@ -38,33 +38,33 @@ func TestInsertionSort(t *testing.T){
 		},
 	}
 
-	for _, tc := range testCases{
-		t.Run(tc.name, func(t *testing.T){
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
 			// Make a copy of the input array to compare the result
 			inputCopy := make([]int, len(tc.input))
 			copy(inputCopy, tc.input)
 
 			InsertionSort(tc.input)
 
-			if !reflect.DeepEqual(tc.input, tc.expected){
+			if !reflect.DeepEqual(tc.input, tc.expected) {
 				t.Errorf("Insertion(%v) = %v, expected %v", inputCopy, tc.input, tc.expected)
 			}
 		})
 	}
 }
 
-func TestInsertionSortError(t *testing.T){
+func TestInsertionSortError(t *testing.T) {
 	// Test case with an empty array
 	testCase := []int{}
 	err := InsertionSort(testCase)
-	if err == nil{
+	if err == nil {
 		t.Error("Expected error but the error doesn't happened.")
 	}
 
 	// Test case with a non-empty array
 	testCase1 := []int{3, 1, 2}
 	err = InsertionSort(testCase1)
-	if err != nil{
+	if err != nil {
 		t.Errorf("Expected no error but the error happened %v", err)
 	}
 }
