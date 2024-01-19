@@ -4,6 +4,9 @@ This is my repository for playing with algorithms using the study materials of[ 
 I will use Python and Golang for this and occassionally C if I am really bored.
 I am trying to learn Golang using this course as my guide.
 
+# Why algorithms?
+While learning Golang, I found out that the language didn't have any standard library for algorithms and data structures. So I got the chance to learn all those things.
+
 # Testing
 Everything will be tested. And you can find that in seperate test files.
 For C, memory leaks are detected by valgrind. For Golang, go fmt tool is used to format.
