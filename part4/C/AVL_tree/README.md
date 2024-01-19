@@ -26,53 +26,53 @@ This one is a little bit complicated and long.
 
 ## Interface
 
-- build_set_avl_tree builds set avl tree with the given keys_values arrays of array in linearithmic time complexity $O(nh) = O(n log n)$.(overhead for sorting the keys)
+- **build_set_avl_tree** builds set avl tree with the given keys_values arrays of array in linearithmic time complexity $O(nh) = O(nlog{n})$.(overhead for sorting the keys)
 
-- _build_set_avl_tree_recursion builds set avl tree with the given start and end index of the sorted keys_values arrays of array in linear time complexity $O(n)$.
+- **_build_set_avl_tree_recursion** builds set avl tree with the given start and end index of the sorted keys_values arrays of array in linear time complexity $O(n)$.
 
-- DAA_sort function sorts the given values in linear time compelxity $\theta(u) = \theta(n)$ if $u = \theta(n)$.
+- **DAA_sort** function sorts the given values in linear time compelxity $\theta(u) = \theta(n)$ if $u = \theta(n)$.
 
     - Mind the limitations.    
 
-- cal_height function returns the height of the node in constant time complexity $O(1)$.(without it everything will be slower, augemntation of height).
+- **cal_height** function returns the height of the node in constant time complexity $O(1)$.(without it everything will be slower, augemntation of height).
 
-- skew function calculates the skew of the node in constant time complexity $O(1).$.
+- **skew** function calculates the skew of the node in constant time complexity $O(1)$.
 
-- subtree_update updates height augmentation of the given node in constant time complexity $O(1)$.
+- **subtree_update** updates height augmentation of the given node in constant time complexity $O(1)$.
 
-- subtree_rotate_right right rotates the given node's subtree in constant time compelxity $O(1)$.
+- **subtree_rotate_right** right rotates the given node's subtree in constant time compelxity $O(1)$.
 
-- subtree_rotate_left left rotates the given node's subtree in constant time complexity $O(1)$.
+- **subtree_rotate_left** left rotates the given node's subtree in constant time complexity $O(1)$.
 
-- rebalance balances the given node's height in constant time complexity $O(1)$.
+- **rebalance** balances the given node's height in constant time complexity $O(1)$.
 
-- maintain maintains height balance of the given subtree's node and it's ancestors in logarithmic time complexity $O(h) = O(log n)$.
+- **maintain** maintains height balance of the given subtree's node and it's ancestors in logarithmic time complexity $O(h) = O(log{n})$.
 
-- subtree_insert_after inserts after the given node with a new node created with given key and value, in logarithmic time complexity $O(h) = O(log n)$.(overhead from maintaining the height balance)
+- **subtree_insert_after** inserts after the given node with a new node created with given key and value, in logarithmic time complexity $O(h) = O(log{n})$.(overhead from maintaining the height balance)
 
-- subtree_insert_before inserts before the givenn node with a new node created with given key and value, in logarithmic time complexity $O(h) = O(log n)$.(overhead for maintaining the height balance).
+- **subtree_insert_before** inserts before the givenn node with a new node created with given key and value, in logarithmic time complexity $O(h) = O(log{n})$.(overhead for maintaining the height balance).
 
-- subtree_delete_node deletes the nodes and update the given root with the maintained root in logarithmic time complexity $O(h) = O(log n)$.(overhead for maintaining the height balance)
+- **subtree_delete_node** deletes the nodes and update the given root with the maintained root in logarithmic time complexity $O(h) = O(log{n})$.(overhead for maintaining the height balance)
 
-- subtree_find function finds the given key in the given subtree in logarithmic time complexity $O(h) = O(log n)$.
+- **subtree_find** function finds the given key in the given subtree in logarithmic time complexity $O(h) = O(log{n})$.
 
-- subtree_first function finds the first node in the in-order traversal order in logarithmic time complexity $O(h) = O(log n)$.
+- **subtree_first** function finds the first node in the in-order traversal order in logarithmic time complexity $O(h) = O(log{n})$.
 
-- subtree_last functions finds the last node in the in-order traversal order in logarithmic time complexity $O(h) = O(log n)$.
+- **subtree_last** functions finds the last node in the in-order traversal order in logarithmic time complexity $O(h) = O(log{n})$.
 
-- successor function finds the successor node of the given node in logarithmic time complexity $O(h) = O(log n)$.
+- **successor** function finds the successor node of the given node in logarithmic time complexity $O(h) = O(log{n})$.
 
-- predecessor function finds the predecessor node of the given node in logarithmic time complexity $O(h) = O(log n)$.
+- **predecessor** function finds the predecessor node of the given node in logarithmic time complexity $O(h) = O(log{n})$.
 
-- subtree_iter function prints the given subtree's nodes' key, value, height in in-order traversal order in linear time complexity $O(n)$.
+- **subtree_iter** function prints the given subtree's nodes' key, value, height in in-order traversal order in linear time complexity $O(n)$.
 
-- print_pre_order function prints the given subtree's nodes' key, value, height in pre-order traversal order in linear time complexity $O(n)$.
+- **print_pre_order** function prints the given subtree's nodes' key, value, height in pre-order traversal order in linear time complexity $O(n)$.
 
-- free_tree function frees the given subtree in linear time complexity $O(n)$.
+- **free_tree** function frees the given subtree in linear time complexity $O(n)$.
 
-- print_hr function prints the visual line in constant time complexity $O(1)$.
+- **print_hr** function prints the visual line in constant time complexity $O(1)$.
 
-- print_array function prints the keys_values arrays of arrays in linear time complexity $O(n)$.
+- **print_array** function prints the keys_values arrays of arrays in linear time complexity $O(n)$.
 
 You can compile the souce code using the `Makefile`.
 ```bash

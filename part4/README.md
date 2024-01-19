@@ -7,6 +7,7 @@ In this part we will explore binary trees and it's properties plus it's interfac
 ## C
 
 - [binary_tree_traversal](./C/binary_tree_traversal)
+- [set AVL tree](./C/AVL_tree)
 
 ## go
 
