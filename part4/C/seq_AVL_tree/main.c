@@ -2,16 +2,6 @@
 
 int main(void)
 {
-	int given_values[] = {1, 2, 3, 4, 5};
-	int length = sizeof(given_values) / sizeof(given_values[0]);
-	printf("Given array of values: \n");
-	print_array(given_values, length);
-	print_hr();
-
-	binary_node* tree = build_seq_avl(given_values, length);
-	print_pre_order(tree);
-	print_hr();
-
 	printf("Building with unsorted values.\n\n");
 	int given_values1[] = {4, 2, 3, 5, 1};
 	int length1 = sizeof(given_values1) / sizeof(given_values1[0]);
@@ -22,6 +12,16 @@ int main(void)
 	binary_node* tree1 = build_seq_avl_sorted(given_values1, length1);
 	print_pre_order(tree1);
 	free_tree(tree1);
+	print_hr();
+
+	int given_values[] = {1, 2, 3, 4, 5};
+	int length = sizeof(given_values) / sizeof(given_values[0]);
+	printf("Given array of values: \n");
+	print_array(given_values, length);
+	print_hr();
+
+	binary_node* tree = build_seq_avl(given_values, length);
+	print_pre_order(tree);
 	print_hr();
 
 	printf("Testing rotations: \n\n");
@@ -56,6 +56,7 @@ int main(void)
 	printf("deleted node's value: %d\n", deleted_node->value);
 	print_hr();
 	subtree_iter(tree);
+	free(deleted_node);
 	print_hr();
 
 	printf("Deleting index 1 for testing rotations second\n\n");
@@ -63,6 +64,7 @@ int main(void)
 	deleted_node = delete_at(&tree, 1);
 	print_pre_order(tree);
 	printf("deleted node's value: %d\n", deleted_node->value);
+	free(deleted_node);
 	print_hr();
 
 	printf("Testing get at, set at: \n\n");
@@ -93,10 +95,14 @@ int main(void)
 	int first_value = get_at(tree, 0);
 	binary_node* first_node = delete_first(&tree);
 	assert(first_node->value == first_value);
+	free(first_node);
 
 	int last_value = get_at(tree, tree->size - 1);
 	binary_node* last_node = delete_last(&tree);
 	assert(last_node->value == last_value);
 	printf("pass\n");
+	free(last_node);
 	print_hr();
+
+	free_tree(tree);
 }
