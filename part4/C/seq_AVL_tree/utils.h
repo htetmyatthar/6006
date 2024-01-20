@@ -153,4 +153,5 @@ void free_tree(binary_node *node);
 // print_hr prints the visual line.
 void print_hr(void);
 
+// prints out the values.
 void print_array(int values[], int length);
