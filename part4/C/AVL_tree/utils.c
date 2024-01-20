@@ -170,6 +170,8 @@ binary_node* subtree_rotate_right(binary_node *tree)
 		fprintf(stderr, "Error: Cannot perform right rotation. The tree or it's left subtree's NULL\n.");
 		exit(EXIT_FAILURE);
 	}
+	// ancestor
+	binary_node* base_tree = tree->parent;
 	
 	// preparation of rotation
 	binary_node* new_root = tree->left;
@@ -189,6 +191,19 @@ binary_node* subtree_rotate_right(binary_node *tree)
 	// update right child of the new root
 	new_root->right = tree;
 
+	// update the child of the ancestor of old root
+	if(base_tree != NULL)
+	{
+		if(base_tree->left == tree)
+		{
+			base_tree->left = new_root;
+		}
+		if(base_tree->right == tree)
+		{
+			base_tree->right = new_root;
+		}
+	}
+
 	// update the height
 	subtree_update(tree);
 	subtree_update(new_root);
@@ -203,6 +218,8 @@ binary_node* subtree_rotate_left(binary_node *tree)
 		fprintf(stderr, "Error: Cannot perform left rotation. The tree or it's right subtree's NULL.\n");
 		exit(EXIT_FAILURE);
 	}
+	// ancestor
+	binary_node* base_tree = tree->parent;
 
 	// preparation for rotation
 	binary_node *new_root = tree->right;
@@ -221,6 +238,19 @@ binary_node* subtree_rotate_left(binary_node *tree)
 
 	// update left child of the new root
 	new_root->left = tree;
+
+	// update the child of the ancestor of old root
+	if(base_tree != NULL)
+	{
+		if(base_tree->left == tree)
+		{
+			base_tree->left = new_root;
+		}
+		if(base_tree->right == tree)
+		{
+			base_tree->right = new_root;
+		}
+	}
 
 	// update the height
 	subtree_update(tree);
@@ -301,7 +331,7 @@ void subtree_insert_after(binary_node **tree, binary_node *node, int value, int 
 	else
 	{
 		node->right = new_node;
-		new_node->parent = node->right;
+		new_node->parent = node;
 	}
 
 	// maintain the height balanced traversal order.
@@ -338,7 +368,7 @@ void subtree_insert_before(binary_node **tree, binary_node *node, int value, int
 	else
 	{
 		node->left = new_node;
-		new_node->parent = node->left;
+		new_node->parent = node;
 	}
 
 	// maintain the height balanced traversal order.
@@ -413,7 +443,7 @@ binary_node *subtree_delete_node(binary_node **root, binary_node *node)
 		int temp_value = predecessor_node->value;
 		predecessor_node->value = node->value;
 		node->value = temp_value;
-		subtree_delete_node(root, predecessor_node);
+		return subtree_delete_node(root, predecessor_node);
 	}
 	else
 	{
@@ -421,11 +451,8 @@ binary_node *subtree_delete_node(binary_node **root, binary_node *node)
 		int temp_value = successor_node->value;
 		successor_node->value = node->value;
 		node->value = temp_value;
-		subtree_delete_node(root, node);
+		return subtree_delete_node(root, node);
 	}
-
-	// impossible though.
-	return NULL;
 }
 
 // _subtree_find_recursion finds the given key's node in the given node's subtrees.
