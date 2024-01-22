@@ -30,10 +30,13 @@ int main(void)
 	print_both(new_heap);
 	printf("deleted value: %d", heap_delete_min(&new_heap));
 	print_both(new_heap);
+	print_hr();
 
+	printf("sorting\n");
 	print_normal_array(values, length);
 	heap_sort(values, length);
 	print_normal_array(values, length);
+	print_hr();
 
 	free_dynamic_array(new_heap);
 	return 0;
