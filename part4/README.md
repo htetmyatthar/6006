@@ -11,7 +11,9 @@ In this part we will explore binary trees and it's properties plus it's interfac
 - [seq_avl_tree](./C/seq_AVL_tree)
 - binary_heaps
 
-    -[max_heap](./C/binary_heaps/max_heap)
+    - [max_heap](./C/binary_heaps/max_heap)
+    - [min_heap](./C/binary_heaps/min_heap)
+
 
 ## go
 
