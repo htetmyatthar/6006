@@ -7,3 +7,7 @@ In this part we will explore about the basics of graphs and their specialities.
 ## C
 
 - [graph](./C/graph)
+
+- [breath_first_search](./C/breath_first_search)
+
+- [depth_first_search](./C/depth_first_search)
