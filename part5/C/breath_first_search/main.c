@@ -58,13 +58,20 @@ void find_paths(graph* graph)
 
 void print_parents(char array[], int length)
 {
+	// divided for plusing.
 	for(int i = 0; i < length / 2; i++)
 	{
-		printf("vertex: %c, parent: %c -> \n", i+65, array[i]);
+		if (array[i] != '\0')
+		{
+			printf("vertex: %c, parent: %c -> \n", i+65, array[i]);
+		}
 	}
 	for(int i = length / 2; i < length; i++)
 	{
-		printf("vertex: %c, parent: %c -> \n", i+71, array[i]);
+		if (array[i] != '\0')
+		{
+			printf("vertex: %c, parent: %c -> \n", i+71, array[i]);
+		}
 	}
 }
 

@@ -14,7 +14,7 @@ This is a section for creating breath first search.
 
 - graph.h file contains the header functions for graph.
 
-- Makefile contains the command line configuration for the whole program. Uses[Clang 17.0.6](https://clang.llvm.org)
+- Makefile contains the command line configuration for the whole program. Uses [Clang 17.0.6](https://clang.llvm.org)
 
 ## Specification
 
@@ -24,7 +24,7 @@ This is a section for creating breath first search.
 
 - bfs function explore the given graph with the given starting point in linear time compelxity $O(|V|+|E|)$.
 
-- find_path function finds one of the shortest path from given source to given destination in linear time complexity $O(|V||E|)$.
+- find_path function finds one of the shortest path from given source to given destination in linear time complexity $O(|V|+|E|)$.
 
 - init_queue function initialize the linked list queue in constant time complexity $O(1)$.
 

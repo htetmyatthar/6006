@@ -1,20 +1,21 @@
 CC = clang
-# clang's default dwarf is v5, for valgrind compatibility
-CFLAGS = -Wall -Wextra -gdwarf-4
+#dwarf version of clang v5, uses v4 for valgrind compatibility
+CFLAGS = -gdwarf-4 -Wall -Wextra
+DBFLAGS = -glldb
 
-TARGET = breath_first_search
+TARGET = depth_first_search
 SRC_FILES = main.c utils.c graph.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
 $(TARGET): $(OBJ_FILES)
 	@echo "Linking object files"
-	$(CC) $^ $(CFLAGS) -o $@
+	$(CC) $(CFLAGS) $(DBFLAGS) $^ -o $@
 	@echo "Deleting all object files"
 	rm -f $(OBJ_FILES)
 
 %.o: %.c
 	@echo "Compiling object files"
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(DBFLAGS) -c $< -o $@
 
 clean:
 	@echo "Removing object files and executable"
@@ -25,5 +26,5 @@ run:
 	./$(TARGET)
 
 valgrind:
-	@echo "Memcheck with valgrind"
+	@echo "Memcheck using valgrind."
 	valgrind --leak-check=full ./$(TARGET)
