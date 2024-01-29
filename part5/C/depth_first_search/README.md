@@ -4,17 +4,17 @@ This is a section for creating breath first search.
 
 ## File structure
 
-- main.c file contains the usage of depth first search during implementation.
+- `main.c` file contains the usage of depth first search during implementation.
 
-- utils.c file contains the implementations for depth first search.
+- `utils.c` file contains the implementations for depth first search.
 
-- graph.c file contains the implementations for graph.
+- `graph.c` file contains the implementations for graph.
 
-- utils.h file contains the header functions for the depth first search.
+- `utils.h` file contains the header functions for the depth first search.
 
-- graph.h file contains the header functions for graph.
+- `graph.h` file contains the header functions for graph.
 
-- Makefile contains the command line configuration for the whole program. Uses [Clang 17.0.6](https://clang.llvm.org) compiler.
+- `Makefile` contains the command line configuration for the whole program. Uses [Clang 17.0.6](https://clang.llvm.org) compiler.
 
 ## Specification
 
