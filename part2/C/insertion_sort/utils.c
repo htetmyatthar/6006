@@ -23,4 +23,16 @@ For i from 1 to n - 1
 		}
 	}
 	return;
+
+	/*
+	*	for(int i = 1; i < length; i++)
+	*	{
+	*		for(int j = i; j > 0; j--)
+	*		{
+	*			int temp = array[j];
+	*			array[j] = array[j - 1];
+	*			array[j - 1] = temp;
+	*		}
+	*	}
+	*/
 }
