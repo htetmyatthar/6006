@@ -12,4 +12,4 @@ In this part we will explore about the basics of graphs and their specialities.
 
 - [depth_first_search](./C/depth_first_search)
 
-- [weighted_shortest_path](./C/weighted_shortest_path)in a DAG
+- [weighted_shortest_path](./C/weighted_shortest_path) in a DAG
