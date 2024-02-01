@@ -22,9 +22,18 @@ This is a section for finding weighted shortest path in a DAG.
 
 ## Specification
 
-- Implement an algorithm that can calculates the weighted shortest paths, using dfs.
+- Implement an algorithm that can calculates the weighted shortest paths in a DAG(Directed Acyclic Graphs), using dfs.
 
 ## Interface
+
+- DAG_relaxation finds the shortest paths that is reachable from the source in a **DAG** in linear time complexity $O(|V| + |E|)$.
+
+- find_weight finds the weight of the given edge(from source to destination) in given graph in linear time complexity $O(|E|)$.
+We can do better by using other data structures, currently weight is implemented within the graph.
+
+- try_to_relax relax the give source to destination edges in constant time complexity $O(1)$.
+
+- free_shortest_distances frees the memory that is allocated during the creation of given shortest_distances in constant time complexity $O(1)$.
 
 You can compile the source code using the `Makefile`.
 

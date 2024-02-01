@@ -2,6 +2,17 @@
 
 shortest_distances* DAG_relaxation(graph *graph, char source)
 {
+	if (graph == NULL)
+	{
+		return NULL;
+	}
+	int source_hash = hash_function(source);
+	// invalid source
+	if (source_hash == -1)
+	{
+		return NULL;
+	}
+
 	// just a dummy allocation necessary for dfs.
 	char* parent_array = calloc(MAX_CHAR, sizeof(char));
 	if (parent_array == NULL)
@@ -34,13 +45,14 @@ shortest_distances* DAG_relaxation(graph *graph, char source)
 	{
 		distances->data[i].shortest_distance = INFINITY;
 	}
+
 	// already initialized no parent as '\0' using calloc.
 	// indecies of distances->data are the destination vertices of the source.
 	// will use hash_function from the graph.
 	
 	// initialize the source.
-	distances->data[hash_function(source)].parent_vertex = source;
-	distances->data[hash_function(source)].shortest_distance = 0;
+	distances->data[source_hash].parent_vertex = source;
+	distances->data[source_hash].shortest_distance = 0;
 	distances->source = source;
 
 	// number of vertices that can reach from the source
@@ -57,7 +69,6 @@ shortest_distances* DAG_relaxation(graph *graph, char source)
 	}
 
 	free_queue_list(order);
-
 	return distances;
 }
 
