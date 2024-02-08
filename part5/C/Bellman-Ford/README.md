@@ -1,6 +1,6 @@
 # Introduction
 
-This is a section for finding weighted shortest path in a DAG.
+This is a section for finding weighted shortest path in a general graph that doesn't contains negative weight cycles.
 
 ![bellman ford test graph photo](./Bellman_Ford_test_graph.png)
 
