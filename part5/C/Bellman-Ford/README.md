@@ -64,5 +64,11 @@ make run
 ```
 Depending on your os, and your computer, the commands might be a little different.
 
+## Limitations
+
+- Bellman-Ford function will exit the program if there's an negative weight cycle, which is not good if you want to know what vertices are in the negative weight cycle.
+
+- To know which vertices are the negative weight cycle, we have to do graph duplications.
+
 # References
 Erik Demaine, Json Ku, Justin Solomon.MIT 6006 Introduction to algorithms. Spring2020. Massachusetts Institute of Technology: MIT OpenCouseWare, https://ocw.mit.edu/. License: Creative Commons BY-NC-SA.
