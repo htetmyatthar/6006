@@ -21,4 +21,4 @@ typedef struct graph_dup_vertex
 // Bellman_Ford returns the shortest paths if there's no negative weight cycles.
 // Exit code(2) if the graph has negative cycles.
 // Exit code(1) if there's not enough memory for shortest_distances or shortest_distances->data.
-shortest_distances* Bellman_Ford(graph *graph, char source);
+shortest_distances* Bellman_Ford(graph *graph, char source, char parents[]);

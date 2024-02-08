@@ -30,7 +30,7 @@ double find_weight(graph *graph,char source, char destination);
 
 // trye_to_relax acts as a helper function for the DAG_relaxation. Don't have any error checking.
 // relax the edges according to the given graph and the source and destination considering estimate distances.
-void try_to_relax(graph *graph, shortest_distances *distances, char source, char destination);
+bool try_to_relax(graph *graph, shortest_distances *distances, char source, char destination);
 
 // free_shortest_distances frees the memory that is allocated during the creation of given shortest_distances.
 void free_shortest_distances(shortest_distances *distances);

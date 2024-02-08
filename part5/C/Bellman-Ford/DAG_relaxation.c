@@ -96,7 +96,7 @@ double find_weight(graph *graph,char source, char destination)
 	return finger->weight;
 }
 
-void try_to_relax(graph *graph, shortest_distances *distances, char source, char destination)
+bool try_to_relax(graph *graph, shortest_distances *distances, char source, char destination)
 {
 	// dont need to check source and destination any more these are come directly from the graphs.
 	int source_hash = hash_function(source);
@@ -109,7 +109,9 @@ void try_to_relax(graph *graph, shortest_distances *distances, char source, char
 		// relax
 		distances->data[destination_hash].shortest_distance = distances->data[source_hash].shortest_distance + edge_weight;
 		distances->data[destination_hash].parent_vertex = source;
+		return true;
 	}
+	return false;
 }
 
 void free_shortest_distances(shortest_distances *distances)

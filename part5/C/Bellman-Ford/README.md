@@ -2,6 +2,8 @@
 
 This is a section for finding weighted shortest path in a DAG.
 
+![bellman ford test graph photo](Bellman-Ford_test_graph.png)
+
 ## File structure
 
 - `main.c` file contains the usage of Bellman-Ford algorithm during implementation.

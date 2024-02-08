@@ -4,6 +4,8 @@ void adding_edges(graph* graph_adj);
 
 void print_shortest_paths(shortest_distances *distances);
 
+void print_parents(char parents[]);
+
 int main(void)
 {
 	printf("Creating a graph.\n");
@@ -19,14 +21,24 @@ int main(void)
 	print_hr();
 
 	printf("Testing with a graph that does not contain negative weight cycles: \n");
-	shortest_distances *distances = Bellman_Ford(Graph, 's');
+	char *parent_pointers = calloc(MAX_CHAR, sizeof(char));
+	if(parent_pointers == NULL)
+	{
+		free_graph(Graph);
+	}
+	shortest_distances *distances = Bellman_Ford(Graph, 's', parent_pointers);
 	if(distances != NULL)
 	{
 		print_shortest_paths(distances);
 	}
+	print_hr();
+
+	printf("Parent pointers from source 's'.\n");
+	print_parents(parent_pointers);
 
 	free_shortest_distances(distances);
 	free_graph(Graph);
+	free(parent_pointers);
 }
 
 void adding_edges(graph* graph_adj)
@@ -62,6 +74,25 @@ void print_shortest_paths(shortest_distances *distances)
 		if(distances->data[i].parent_vertex != '\0' && distances->data[i].shortest_distance != INFINITY)
 		{
 			printf("(distance: %.3f, destination: %c)\n", distances->data[i].shortest_distance, i + 71);
+		}
+	}
+}
+
+void print_parents(char parents[])
+{
+	for(int i = 0; i < MAX_CHAR / 2;i++)
+	{
+		if(parents[i] != '\0')
+		{
+			 printf("(vertex: %c -> parent: %c)\n", i + 65, parents[i]);
+		}
+	}
+
+	for(int i = MAX_CHAR / 2; i < MAX_CHAR; i++)
+	{
+		if(parents[i] != '\0')
+		{
+			 printf("(vertex: %c -> parent: %c)\n", i + 71, parents[i]);
 		}
 	}
 }

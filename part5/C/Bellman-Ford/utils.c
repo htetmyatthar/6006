@@ -1,6 +1,6 @@
 #include "utils.h"
 
-shortest_distances* Bellman_Ford(graph *graph, char source)
+shortest_distances* Bellman_Ford(graph *graph, char source, char parents[])
 {
 	if(graph == NULL)
 	{
@@ -56,7 +56,11 @@ shortest_distances* Bellman_Ford(graph *graph, char source)
 				for(node* adj_node = graph->hash_table[j].next; adj_node != NULL; adj_node = adj_node->next)
 				{
 					// relax that vertex and it's adjacency
-					try_to_relax(graph, distances, graph->hash_table[j].value, adj_node->value);
+					bool relaxed = try_to_relax(graph, distances, graph->hash_table[j].value, adj_node->value);
+					if(relaxed == true)
+					{
+						parents[hash_function(adj_node->value)] = graph->hash_table[j].value;
+					}
 				}
 			}
 		}
