@@ -6,7 +6,7 @@ void print_shortest_paths(shortest_distances *distances);
 
 int main(void)
 {
-	printf("Creating a DAG.\n");
+	printf("Creating a graph.\n");
 	char vertices[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 's'};
 	int length = sizeof(vertices) / sizeof(vertices[0]);
 	graph* Graph = create_graph(vertices, length);
@@ -20,7 +20,10 @@ int main(void)
 
 	printf("Testing with a graph that does not contain negative weight cycles: \n");
 	shortest_distances *distances = Bellman_Ford(Graph, 's');
-	print_shortest_paths(distances);
+	if(distances != NULL)
+	{
+		print_shortest_paths(distances);
+	}
 
 	free_shortest_distances(distances);
 	free_graph(Graph);
