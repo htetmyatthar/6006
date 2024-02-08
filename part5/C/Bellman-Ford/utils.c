@@ -70,8 +70,8 @@ shortest_distances* Bellman_Ford(graph *graph, char source)
 			for(node* adj_node = graph->hash_table[i].next; adj_node != NULL; adj_node = adj_node->next)
 			{
 				int source_hash = hash_function(graph->hash_table[i].value);
-				int destination_hash = hash_function(graph->hash_table[i].next->value);
-				double edge_weight = find_weight(graph, graph->hash_table[i].value, graph->hash_table[i].next->value);
+				int destination_hash = hash_function(adj_node->value);
+				double edge_weight = find_weight(graph, graph->hash_table[i].value, adj_node->value);
 				if(distances->data[destination_hash].shortest_distance > (distances->data[source_hash].shortest_distance + edge_weight))
 				{
 					fprintf(stderr, "ERROR: the graph contains a negative weight cycle.!");
