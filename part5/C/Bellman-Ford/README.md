@@ -2,7 +2,7 @@
 
 This is a section for finding weighted shortest path in a DAG.
 
-![bellman ford test graph photo](Bellman-Ford_test_graph.png)
+![bellman ford test graph photo](./Bellman_Ford_test_graph.png)
 
 ## File structure
 
