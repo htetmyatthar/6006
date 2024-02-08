@@ -7,6 +7,9 @@ I am trying to learn Golang using this course as my guide.
 # Why algorithms?
 While learning Golang, I found out that the language didn't have any standard library for algorithms and data structures. So I got the chance to learn all those things.
 
+# Program file structures
+All the algorithms are made as stand alone ones as much as possibles to understand the content better.
+
 # Testing
 Everything will be tested. And you can find that in seperate test files.
 For C, memory leaks are detected by valgrind. For Golang, go fmt tool is used to format.
