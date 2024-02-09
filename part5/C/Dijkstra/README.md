@@ -30,6 +30,8 @@ This is a section for finding weighted shortest paths(SSSP) in a general graph t
 
 - `Dijkstra` function finds the SSSP in quadratic time complexity $O(|V|^2)$ for both sparse or dense graph, using array implemtation of priority queue.
 
+- `Dijkstra` function finds the SSSP in quadratic time complexity $O(|V|log|V|)$ for sparse graph, using min heap implemtation of priority queue.
+
 - `changable_PQ_array_build` function builds a new priority queue using the direct access array in linear time complexity $O(|V|)$.
 
 - `changable_PQ_array_delete_min` function deletes the minimum in the given priority queue in linear time complexity $O(|V|)$.
@@ -37,6 +39,14 @@ This is a section for finding weighted shortest paths(SSSP) in a general graph t
 - `changable_PQ_array_decrease_key` function decrease(replace) the distance estimates of the given vertex in the priority queue in constant time complexity $O(1)$.
 
 - `free_PQ_array` function frees the memory that is allocated during the creation of the given priority queue in constant time complexity $O(1)$.
+
+- `changable_PQ_heap_build` function builds a new priority queue using the direct access array in linear time complexity $O(|V|)$.
+
+- `changable_PQ_heap_delete_min` function deletes the minimum in the given priority queue in linear time complexity $O(log|V|)$.
+
+- `changable_PQ_heap_decrease_key` function decrease(replace) the distance estimates of the given vertex in the priority queue in constant time complexity $O(log|V|)$.
+
+- `free_PQ_heap` function frees the memory that is allocated during the creation of the given priority queue in constant time complexity $O(1)$.
 
 You can compile the source code using the `Makefile`.
 
