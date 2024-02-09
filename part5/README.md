@@ -15,3 +15,5 @@ In this part we will explore about the basics of graphs and their specialities.
 - [weighted_shortest_path](./C/weighted_shortest_path) in a DAG
 
 - [Bellman-Ford](./C/Bellman-Ford)
+
+- [Dijkstra](./C/Dijkstra)
