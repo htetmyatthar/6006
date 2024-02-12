@@ -2,7 +2,8 @@
 
 void adding_edges(graph* graph_adj);
 
-void adding_edges_more(graph* graph_adj);
+// used when testing for creating duplicated graph.
+//void adding_edges_more(graph* graph_adj);
 
 void print_roots(char array[], int length);
 
@@ -11,8 +12,11 @@ void print_shortest_paths(shortest_distances *distances);
 int main(void)
 {
 	printf("Creating a DAG.\n");
-	//char vertices[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
-	char vertices[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p'};
+	char vertices[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+	/*
+	*	used when testing for creating duplicated graph.
+	*	char vertices[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p'};
+	*/
 	int length = sizeof(vertices) / sizeof(vertices[0]);
 	graph* Graph = create_graph(vertices, length);
 	print_adjancency_list(Graph);
@@ -20,7 +24,7 @@ int main(void)
 
 	printf("Adding edges to form a graph.\n");
 	//adding_edges(Graph);
-	adding_edges_more(Graph);
+	adding_edges(Graph);
 	print_adjancency_list(Graph);
 	print_hr();
 
@@ -39,8 +43,11 @@ int main(void)
 	print_roots(parent_new_array, MAX_CHAR);
 	print_hr();
 
-	//printf("Shortest paths from source 'e': \n");
-	printf("Shortest paths from source 'a': \n");
+	/*
+	* used when testing for creating duplicated graph.
+	* printf("Shortest paths from source 'a': \n");
+	*/
+	printf("Shortest paths from source 'e': \n");
 	shortest_distances *e_shortest_paths = DAG_relaxation(Graph, 'a');
 	printf("Number of vertices that can reach from source: %i\n", e_shortest_paths->size);
 	print_shortest_paths(e_shortest_paths);
@@ -69,6 +76,7 @@ void adding_edges(graph* graph_adj)
 	add_edge(graph_adj, 'h', 'd', 4);
 }
 
+// used for when creating duplicated graph in Bellman-Ford-Modified
 void adding_edges_more(graph* graph_adj)
 {
 	add_edge(graph_adj, 'a', 'b', 0);
