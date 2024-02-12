@@ -2,6 +2,8 @@
 
 void adding_edges(graph* graph_adj);
 
+void adding_edges_modified(graph* graph_adj);
+
 void print_shortest_paths(shortest_distances *distances);
 
 void print_parents(char parents[]);
@@ -39,6 +41,52 @@ int main(void)
 	free_shortest_distances(distances);
 	free_graph(Graph);
 	free(parent_pointers);
+	print_hr();
+
+	print_hr();
+	printf("Creating a graph that contains negative weight cycles: \n");
+	//char vertices_modified[] = {'a', 'b', 'c', 'd'};
+	char vertices_modified[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+	int length_modified = sizeof(vertices_modified) / sizeof(vertices_modified[0]);
+	graph* Graph_modified = create_graph(vertices_modified, length_modified);
+	print_adjancency_list(Graph_modified);
+	print_hr();
+
+	printf("Adding edges to form a graph.\n");
+	adding_edges_modified(Graph_modified);
+	print_adjancency_list(Graph_modified);
+	print_hr();
+
+	printf("Finding negative weight cycles in the given graph with source 'a'.\n");
+	shortest_distances *mod_deltas = Bellman_Ford_modified(Graph_modified, 'a');
+	print_shortest_paths(mod_deltas);
+	print_hr();
+
+	free_shortest_distances(mod_deltas);
+	free_graph(Graph_modified);
+	return 0;
+}
+
+void adding_edges_modified(graph* graph_adj)
+{
+	// add_edge(graph_adj, 'a', 'b', -5);
+	// add_edge(graph_adj, 'a', 'c', 6);
+	// add_edge(graph_adj, 'b', 'c', -4);
+	// add_edge(graph_adj, 'c', 'd', 3);
+	// add_edge(graph_adj, 'd', 'b', -1);
+	add_edge(graph_adj, 'a', 'b', -5);
+	add_edge(graph_adj, 'a', 'e', 7);
+	add_edge(graph_adj, 'c', 'b', -1);
+	add_edge(graph_adj, 'b', 'f', -4);
+	add_edge(graph_adj, 'b', 'e', 6);
+	add_edge(graph_adj, 'd', 'c', 5);
+	add_edge(graph_adj, 'e', 'f', 3);
+	add_edge(graph_adj, 'f', 'c', 8);
+	add_edge(graph_adj, 'f', 'g', 2);
+	add_edge(graph_adj, 'g', 'c', 1);
+	add_edge(graph_adj, 'g', 'h', -2);
+	add_edge(graph_adj, 'h', 'c', 9);
+	add_edge(graph_adj, 'h', 'd', 4);
 }
 
 void adding_edges(graph* graph_adj)

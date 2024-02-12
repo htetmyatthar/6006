@@ -26,6 +26,9 @@ run:
 	@echo "Running the main executable if exits"
 	./$(TARGET)
 
+debug:
+	lldb ./$(TARGET)
+
 valgrind:
 	@echo "Memcheck with valgrind"
 	valgrind --leak-check=full ./$(TARGET)

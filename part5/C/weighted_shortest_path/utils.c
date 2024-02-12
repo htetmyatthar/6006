@@ -65,6 +65,7 @@ shortest_distances* DAG_relaxation(graph *graph, char source)
 		for (node *adj_node = graph->hash_table[hash_function(finger->value)].next; adj_node != NULL; adj_node = adj_node->next)
 		{
 			try_to_relax(graph, distances, finger->value, adj_node->value);
+			printf("relax : %c -> %c\n", finger->value, adj_node->value);
 		}
 	}
 

@@ -2,6 +2,8 @@
 
 void adding_edges(graph* graph_adj);
 
+void adding_edges_more(graph* graph_adj);
+
 void print_roots(char array[], int length);
 
 void print_shortest_paths(shortest_distances *distances);
@@ -9,14 +11,16 @@ void print_shortest_paths(shortest_distances *distances);
 int main(void)
 {
 	printf("Creating a DAG.\n");
-	char vertices[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+	//char vertices[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+	char vertices[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p'};
 	int length = sizeof(vertices) / sizeof(vertices[0]);
 	graph* Graph = create_graph(vertices, length);
 	print_adjancency_list(Graph);
 	print_hr();
 
 	printf("Adding edges to form a graph.\n");
-	adding_edges(Graph);
+	//adding_edges(Graph);
+	adding_edges_more(Graph);
 	print_adjancency_list(Graph);
 	print_hr();
 
@@ -35,8 +39,9 @@ int main(void)
 	print_roots(parent_new_array, MAX_CHAR);
 	print_hr();
 
-	printf("Shortest paths from source 'e': \n");
-	shortest_distances *e_shortest_paths = DAG_relaxation(Graph, 'e');
+	//printf("Shortest paths from source 'e': \n");
+	printf("Shortest paths from source 'a': \n");
+	shortest_distances *e_shortest_paths = DAG_relaxation(Graph, 'a');
 	printf("Number of vertices that can reach from source: %i\n", e_shortest_paths->size);
 	print_shortest_paths(e_shortest_paths);
 	print_hr();
@@ -62,6 +67,35 @@ void adding_edges(graph* graph_adj)
 	add_edge(graph_adj, 'g', 'h', -2);
 	add_edge(graph_adj, 'h', 'c', 9);
 	add_edge(graph_adj, 'h', 'd', 4);
+}
+
+void adding_edges_more(graph* graph_adj)
+{
+	add_edge(graph_adj, 'a', 'b', 0);
+	add_edge(graph_adj, 'b', 'c', 0);
+	add_edge(graph_adj, 'c', 'd', 0);
+	add_edge(graph_adj, 'd', 'e', 0);
+
+	add_edge(graph_adj, 'a', 'f', -5);
+	add_edge(graph_adj, 'b', 'g', -5);
+	add_edge(graph_adj, 'c', 'h', -5);
+	add_edge(graph_adj, 'd', 'i', -5);
+
+	add_edge(graph_adj, 'a', 'j', 6);
+	add_edge(graph_adj, 'b', 'k', 6);
+	add_edge(graph_adj, 'c', 'l', 6);
+	add_edge(graph_adj, 'd', 'm', 6);
+
+	add_edge(graph_adj, 'j', 'n', 3);
+	add_edge(graph_adj, 'k', 'o', 3);
+	add_edge(graph_adj, 'l', 'p', 3);
+
+	add_edge(graph_adj, 'f', 'k', -4);
+	add_edge(graph_adj, 'g', 'l', -4);
+	add_edge(graph_adj, 'h', 'm', -4);
+
+	add_edge(graph_adj, 'n', 'h', -1);
+	add_edge(graph_adj, 'o', 'i', -1);
 }
 
 void print_shortest_paths(shortest_distances *distances)

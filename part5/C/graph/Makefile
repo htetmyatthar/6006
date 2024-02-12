@@ -1,5 +1,5 @@
 CC = clang
-CFLAGS = -Wall -Wextra -fsanitize=address -g
+CFLAGS = -Wall -Wextra -gdwarf-4 -glldb
 
 TARGET = graph
 SRC_FILES = main.c utils.c
