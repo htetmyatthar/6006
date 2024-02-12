@@ -32,7 +32,9 @@ This is a section for finding weighted shortest path in a general graph that doe
 
 ## Interface
 
-- Bellman-Ford functions returns the single source shortest paths in quadratic time complexity $O(|V||E|)$.
+- Bellman_Ford function returns the single source shortest paths in quadratic time complexity $O(|V||E|)$ aborting if there are negative weight cycles.
+
+- Bellman_Ford_modified function returns the single source shortest paths in quadratic time complexity $O(|V||E|)$ even returning the negative weight cycles if there are any.
 
 You can compile the source code using the `Makefile`.
 
@@ -68,9 +70,11 @@ Depending on your os, and your computer, the commands might be a little differen
 
 ## Limitations
 
-- Bellman-Ford function will exit the program if there's an negative weight cycle, which is not good if you want to know what vertices are in the negative weight cycle.
+- Bellman_Ford function will exit the program if there's an negative weight cycle, which is not good if you want to know what vertices are in the negative weight cycle.
 
 - To know which vertices are the negative weight cycle, we have to do graph duplications.
+
+- Bellman_Ford_modified function is exactly for that using additional functions for duplicating graphs, finding topological order with level, etc.
 
 # References
 Erik Demaine, Json Ku, Justin Solomon.MIT 6006 Introduction to algorithms. Spring2020. Massachusetts Institute of Technology: MIT OpenCouseWare, https://ocw.mit.edu/. License: Creative Commons BY-NC-SA.

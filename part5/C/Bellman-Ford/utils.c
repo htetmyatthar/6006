@@ -137,10 +137,11 @@ shortest_distances* Bellman_Ford_modified(graph* graph, char source, char parent
 	}
 
 	// to track the vertices so that loop faster.
-	char *vertices = malloc(sizeof(char) * 52);
+	char *vertices = malloc(sizeof(char) * MAX_CHAR);
 	if(vertices == NULL)
 	{
 		fprintf(stderr, "ERROR: not enough memory for tracking vertices.\n");
+		exit(1);
 	}
 	int vertices_size = 0;
 
@@ -349,7 +350,11 @@ void dup_graph_dfs_recursion(dup_graph_head *heads, char source, int source_leve
 			}
 		}
 	}
-	topo_enqueue(order, source, source_level);
+	if(topo_enqueue(order, source, source_level) == false)
+	{
+		fprintf(stderr, "ERROR: not enough memory for creating topological nodes.\n");
+		exit(1);
+	}
 	return;
 }
 
