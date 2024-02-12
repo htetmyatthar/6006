@@ -47,7 +47,8 @@ int main(void)
 	print_hr();
 	printf("Creating a graph that contains negative weight cycles: \n");
 	char vertices_modified[] = {'a', 'b', 'c', 'd'};
-	//char vertices_modified[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+	// don't forget to change the adding_edges_modified
+	// char vertices_modified[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
 	int length_modified = sizeof(vertices_modified) / sizeof(vertices_modified[0]);
 	graph* Graph_modified = create_graph(vertices_modified, length_modified);
 	print_adjancency_list(Graph_modified);
@@ -96,6 +97,7 @@ void adding_edges_modified(graph* graph_adj)
 	add_edge(graph_adj, 'c', 'd', 3);
 	add_edge(graph_adj, 'd', 'b', -1);
 	
+	// dont forget to change the vertices array.
 	// add_edge(graph_adj, 'a', 'b', -5);
 	// add_edge(graph_adj, 'a', 'e', 7);
 	// add_edge(graph_adj, 'c', 'b', -1);
