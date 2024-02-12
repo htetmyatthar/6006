@@ -45,7 +45,7 @@ typedef struct {
 // shortest_distances->data.
 shortest_distances *Bellman_Ford(graph *graph, char source, char parents[]);
 
-shortest_distances *Bellman_Ford_modified(graph *graph, char source);
+shortest_distances *Bellman_Ford_modified(graph *graph, char source, char parents[]);
 
 void dup_graph_dfs_recursion(dup_graph_head *graph, char source,
                              int source_level,

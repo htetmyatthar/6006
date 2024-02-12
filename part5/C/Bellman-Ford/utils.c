@@ -87,12 +87,12 @@ shortest_distances* Bellman_Ford(graph *graph, char source, char parents[])
 	return distances;
 }
 
-shortest_distances* Bellman_Ford_modified(graph* graph, char source)
+shortest_distances* Bellman_Ford_modified(graph* graph, char source, char parents_modified[])
 {
 	/*
 	 *	VALID PARAMETER ERROR CHECKING
 	 */
-	if(graph == NULL)
+	if(graph == NULL || parents_modified == NULL)
 	{
 		return NULL;
 	}
@@ -213,6 +213,8 @@ shortest_distances* Bellman_Ford_modified(graph* graph, char source)
 			}
 		}
 	}
+	// UNCOMMENT to print the duplicated graph.
+	// print_dup_graph(heads, new_graph_size);
 
 	/*
 	 *	CALCULATING SHORTEST PATHS FROM THE DUPLICATED GRAPH. RUNNING DAG RELAXATION ON DUP GRAPH.
@@ -239,7 +241,7 @@ shortest_distances* Bellman_Ford_modified(graph* graph, char source)
 	char *parents = calloc(MAX_CHAR, sizeof(char));
 	if(parents == NULL)
 	{
-		fprintf(stderr, "ERROR: not enough memory for creating parent array for finding reachable vertices.\n");
+		fprintf(stderr, "ERROR: not enough memory for creating parents array for final dfs.\n");
 		exit(1);
 	}
 
@@ -255,6 +257,8 @@ shortest_distances* Bellman_Ford_modified(graph* graph, char source)
 	}
 
 	dup_graph_dfs_recursion(heads, source, 0, parents_matrix, order, false); // order is now storing topological order.
+	// UNCOMMENT to print the topological order.
+	// print_topo_order(order);
 
 	// initialize the source.
 	distances_k[0][source_hash] = 0;
@@ -273,8 +277,11 @@ shortest_distances* Bellman_Ford_modified(graph* graph, char source)
 				int adj_topo_out_hash = hash_function(neighbors[i].vertex_out_neighbor->vertex);
 				if (distances_k[topo_source->level + 1][adj_topo_out_hash] > distances_k[topo_source->level][topo_source_hash] + neighbors[i].weight)
 				{
+					// relax the edge
 					distances_k[topo_source->level + 1][adj_topo_out_hash] = distances_k[topo_source->level][topo_source_hash] + neighbors[i].weight;
 					parents_matrix[topo_source->level + 1][adj_topo_out_hash] = topo_source->value;
+					// track the parent in the way
+					parents_modified[adj_topo_out_hash] = topo_source->value;
 				}
 			}
 		}
@@ -300,11 +307,12 @@ shortest_distances* Bellman_Ford_modified(graph* graph, char source)
 		int vertex_hash = hash_function(vertices[i]);
 		if(distances_k[vertices_size][vertex_hash] < distances_k[vertices_size - 1][vertex_hash])
 		{
-			queue_list *visited = dfs(graph, vertices[i], parents);
+			queue_list *visited = dfs(graph, vertices[i], parents);	// don't mess with the parents with the org parents.
 			// for every vertices that is reachable from a witness
 			for(queue_node *finger = visited->head; finger != NULL; finger = finger->next)
 			{
 				distances->data[hash_function(finger->value)].shortest_distance = -INFINITY;
+				parents_modified[hash_function(finger->value)] = '\0';
 			}
 			free_queue_list(visited);
 		}
