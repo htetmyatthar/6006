@@ -42,10 +42,6 @@ typedef struct {
 // Exit code(2) if the graph has negative cycles.
 shortest_distances *Bellman_Ford(graph *graph, char source, char parents[]);
 
-/*
- *	IDEA: ALSO RETURN NEGATIVE WEIGHT CYCLES.
- */
-
 // Bellman_Ford_modified returns the shortest paths and the negative weight cycles if there are any.
 // Returns NULL if the given graph or parents is NULL or the given source is invalid.
 // Exit code(1) if there's not enough memory.
