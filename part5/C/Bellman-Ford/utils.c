@@ -259,7 +259,7 @@ shortest_distances* Bellman_Ford_modified(graph* graph, char source, char parent
 
 	dup_graph_dfs_recursion(heads, source, 0, parents_matrix, order, false); // order is now storing topological order.
 	// UNCOMMENT to print the topological order.
-	// print_topo_order(order);
+	//print_topo_order(order);
 
 	// initialize the source.
 	distances_k[0][source_hash] = 0;
