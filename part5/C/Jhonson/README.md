@@ -2,8 +2,6 @@
 
 This is a section for finding all pairs hortest paths(APSP) in a general graph.
 
-![Dijkstra test graph photo](Dijkstra_test_graph.png)
-
 ## File structure
 
 - `main.c` file contains the usage of Dijkstra's algorithm during implementation.
