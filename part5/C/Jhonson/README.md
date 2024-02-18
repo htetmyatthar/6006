@@ -1,6 +1,6 @@
 # Introduction
 
-This is a section for finding weighted shortest paths(SSSP) in a general graph that doesn't contains negative weights using Dijkstra's algorithm.
+This is a section for finding all pairs hortest paths(APSP) in a general graph.
 
 ![Dijkstra test graph photo](Dijkstra_test_graph.png)
 
@@ -8,45 +8,39 @@ This is a section for finding weighted shortest paths(SSSP) in a general graph t
 
 - `main.c` file contains the usage of Dijkstra's algorithm during implementation.
 
-- `utils.c` file contains the implementations for Dijkstra's algorithm.
+- `utils.c` file contains the implementations for Jhonson's algorithm.
+
+- `Bellman-Ford.c` file contains the implementations for Bellman-Ford algorithm.
+
+- `Dijkstra.c` file contains the implementations for Dijkstra's algorithm
 
 - `DAG_relaxation.c` file contains the implementations for DAG RELAXATION.
+
+- `dfs.c` file contains the implementations for depth first search algorithm.
 
 - `graph.c` file contains the implementations for graph.
 
 - `graph.h` file contains the header functions for graph.
 
+- `dfs.h` file contains the header functions for depth first search algorithm.
+
 - `DAG_relaxation.h` file contains the header functions for DAG RELAXATION.
 
-- `utils.h` file contains the header functions for the depth first search.
+- `Dijkstra.h` file contains the header functions for Dijkstra's algorithm
+
+- `Bellman-Ford.h` file contains the header functions for Bellman-Ford algorithm.
+
+- `utils.h` file contains the header functions for Jhonson's algorithm.
 
 - `Makefile` contains the command line configuration for the whole program. Uses [Clang 17.0.6](https://clang.llvm.org) compiler.
 
 ## Specification
 
-- Implement an algorithm that can calculates the weighted shortest paths in a general graphs that has only positive weight edges.
+- Implement Jhonson's algorithm for calculating all pairs shortest paths.
 
 ## Interface
 
-- `Dijkstra` function finds the SSSP in quadratic time complexity $O(|V|^2)$ for both sparse or dense graph, using array implemtation of priority queue.
-
-- `Dijkstra` function finds the SSSP in quadratic time complexity $O(|V|log|V|)$ for sparse graph, using min heap implemtation of priority queue.
-
-- `changable_PQ_array_build` function builds a new priority queue using the direct access array in linear time complexity $O(|V|)$.
-
-- `changable_PQ_array_delete_min` function deletes the minimum in the given priority queue in linear time complexity $O(|V|)$.
-
-- `changable_PQ_array_decrease_key` function decrease(replace) the distance estimates of the given vertex in the priority queue in constant time complexity $O(1)$.
-
-- `free_PQ_array` function frees the memory that is allocated during the creation of the given priority queue in constant time complexity $O(1)$.
-
-- `changable_PQ_heap_build` function builds a new priority queue using the direct access array in linear time complexity $O(|V|)$.
-
-- `changable_PQ_heap_delete_min` function deletes the minimum in the given priority queue in linear time complexity $O(log|V|)$.
-
-- `changable_PQ_heap_decrease_key` function decrease(replace) the distance estimates of the given vertex in the priority queue in constant time complexity $O(log|V|)$.
-
-- `free_PQ_heap` function frees the memory that is allocated during the creation of the given priority queue in constant time complexity $O(1)$.
+- `Jhonson` function returns the all pairs shortest in $O(|V|.|E|log|V|)$ since the underlying Dijkstra algorithm is using min heaps.
 
 You can compile the source code using the `Makefile`.
 
@@ -58,7 +52,7 @@ will compile and link all the source file to main executable.
 Unlike python and go, we have to check memory leaks and other memory related issues using `valgrind`'s memcheck tool.
 
 ```bash
-valgrind ./Dijkstra
+valgrind ./Jhonson
 ```
 
 or 
@@ -70,7 +64,7 @@ make valgrind
 Running the machine code is like outputting the results of the implementations. You can check if your implementations are correct or not.
 
 ```bash
-./Dijkstra
+./Jhonson
 ```
 
 or 
@@ -82,7 +76,7 @@ Depending on your os, and your computer, the commands might be a little differen
 
 ## Limitations
 
-- Dijkstra's algorithm will not work with graphs that contain negative weights.
+- In this example the underlying Dijkstra's algorithm uses min heap.
 
 # References
 Erik Demaine, Json Ku, Justin Solomon.MIT 6006 Introduction to algorithms. Spring2020. Massachusetts Institute of Technology: MIT OpenCouseWare, https://ocw.mit.edu/. License: Creative Commons BY-NC-SA.

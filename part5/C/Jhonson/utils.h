@@ -8,5 +8,7 @@ typedef struct
 	char *vertices;		// array of vertices to reference the indecies.
 }shortest_distances_matrix;
 
-//
+// Jhonson returns the all pairs shortest paths using the given graph.
+// exit code (1) if there are memory related issues.
+// exit code (2) if there is negative weight cycle.
 shortest_distances_matrix *Jhonson(graph *graph);
