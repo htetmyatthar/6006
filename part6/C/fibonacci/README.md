@@ -15,7 +15,7 @@ Implement a function that can find nth number of the fibonacci sequence.
 
 NOTE: in this program the nth is upper bound to 46 for easier implementation.
 
-- `fibonacci_plain` function returns the nth number in fibonacci sequence in exponential time complexity $O(2^(n/2))$.
+- `fibonacci_plain` function returns the nth number in fibonacci sequence in exponential time complexity $O(2^{n/2})$.
 
 - `fibonacci_recursive` function returns the nth number in fibonacci sequence in linear time complexity $O(n)$.
 
