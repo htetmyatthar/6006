@@ -52,7 +52,7 @@ Depending on your os and your computer, the commands might be a little different
 ## Limitation
 
 - If the nth number is not upper bounded by 46, the running time for the below two functions will become as follows:
-    $O(n + n^2 / w)$
+    $O(n + n^{2} / w)$
 This is due to the fact that Fibonacci numbers grow to $\theta(n)$ bits long, potentially $\gg$ word size $w$.
 
 # References
