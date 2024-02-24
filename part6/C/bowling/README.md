@@ -11,11 +11,17 @@ This is the gentle introduction to dynamic programming which is finding the maxi
 ## Specification
 Implement a function that can computer the best score we can get by the following rules:
     - Given $n$ pins labeled $0, 1, ..., n - 1$.
+
     - Pin i has value $v_i$.
+
     - Ball of size similar to pin can hit either
+
         - $1$ pin $i$, in which case we get $v_i$ points.
+
         - $2$ adjacent pins $i$ and $i + 1$, in which case we get $v_i . v_{i + 1}$ points.
+
     - Or skip the pin
+
     - Once a pin is hit, it can't be hit again(removed)
 
 Goal: Throw zero or more balls to maximize total points.
