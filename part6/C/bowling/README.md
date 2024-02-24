@@ -20,7 +20,9 @@ Implement a function that can computer the best score we can get by the followin
 
 Goal: Throw zero or more balls to maximize total points.
 
-e.g. $[-1, \{1\}, \{1\}, \{1\}, \{9, 9\}, \{3\}, \{-3, -5\}, \{2, 2\}]$
+e.g. $[-1, {1}, {1}, {1}, {9, 9}, {3}, {-3, -5}, {2, 2}]$
+
+[1], [1], [1], [9, 9], [3], [-3, -5], [2, 2]
 
 Curly braces as the pins that will hit together by a bowling ball.
 
