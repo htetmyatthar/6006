@@ -26,6 +26,10 @@ e.g. $[-1, {1}, {1}, {1}, {9, 9}, {3}, {-3, -5}, {2, 2}]$
 
 ## Interface
 
+- `bowling_recursive` finds the maximum point using the recursive approach(top down) in linear time complexity $O(n)$.
+
+- `bowling_iterative` finds the maximum point using the iterative approach(bottom up) in linear time complexity $O(n)$.
+
 You can compile the source code using the `Makefile`.
 
 ```bash
