@@ -16,9 +16,11 @@ This is the gentle introduction to dynamic programming which is finding longest 
 
 - Solution: abort, of length 5
 
-- MAXIMIZATION of problem on length of subsequence.
+- NOTE: MAXIMIZATION of problem on length of subsequence.
 
 ## Interface
+
+- `longest_increasing_subseq_iterative` finds the lenght of the longest increasing subseq using iterative approach(bottom up) in quadratic time complexity $O(|A|^{2})$.
 
 You can compile the source code using the `Makefile`.
 
@@ -30,7 +32,7 @@ will compile and link all the source file to main executable.
 Unlike python and go, we have to check memory leaks and other memory related issues using `valgrind`'s memcheck tool.
 
 ```bash
-valgrind ./bowling
+valgrind ./lis
 ```
 or
 ```bash
@@ -40,7 +42,7 @@ make valgrind
 Running the executable is like outputting the results of the implementations. You can check if your implementations are correct or not.
 
 ```bash
-./bowling
+./lis
 ```
 or
 ```bash
