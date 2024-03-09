@@ -1,5 +1,7 @@
 #include "utils.h"
 
+// TODO: track parent pointers and return the sequence.
+
 int longest_common_subseq_iterative(char *A, char *B, int A_length, int B_length)
 {
 	// initialized the results matrix.
