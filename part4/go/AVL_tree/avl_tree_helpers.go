@@ -57,11 +57,11 @@ func (treeNode *BinaryNode) SubtreeUpdate() error{
 // BinaryNode.SubtreeRotateRight right rotates the given subtree(using it's root node) treeNode
 // Returns an error if the given treeNode is nil or if the given treeNode does not have left child.
 // Overwrite's the treeNode(old root) with the newly rotated tree's root.
-func (treeNode *BinaryNode) SubtreeRotateRight() error{
+func (treeNode *BinaryNode) SubtreeRotateRight() (*BinaryNode, error){
 	if treeNode == nil{
-		return errors.New("Given treeNode is nil.")
+		return nil, errors.New("Given treeNode is nil.")
 	} else if treeNode.Left == nil{
-		return errors.New("Given treeNode has no left subtree.")
+		return nil, errors.New("Given treeNode has no left subtree.")
 	}
 
 	// remeber the ancestor
@@ -97,18 +97,20 @@ func (treeNode *BinaryNode) SubtreeRotateRight() error{
 	newRoot.SubtreeUpdate()
 
 	// overwrite the root
-	treeNode = newRoot
-	return nil
+	// treeNode = newRoot
+	// NOTE: WE CAN'T OVERRIDE IT. since golang is pass by value even the pointers.
+
+	return newRoot, nil
 }
 
 // BinaryNode.SubtreeRotateLeft left rotates the given subtree(using it's root node) treeNode
 // Returns an error if the given treeNode is nil or if the given treeNode does not have right child.
 // Overwrite's the treeNode(old root) with the newly rotated tree's root.
-func (treeNode *BinaryNode) SubtreeRotateLeft() error{
+func (treeNode *BinaryNode) SubtreeRotateLeft() (*BinaryNode, error){
 	if treeNode == nil{
-		return errors.New("Given treeNode is nil.")
+		return nil, errors.New("Given treeNode is nil.")
 	} else if treeNode.Right == nil {
-		return errors.New("Given treeNode has no right subtree.")
+		return nil, errors.New("Given treeNode has no right subtree.")
 	}
 
 	// remeber the ancestor
@@ -144,80 +146,92 @@ func (treeNode *BinaryNode) SubtreeRotateLeft() error{
 	newRoot.SubtreeUpdate()
 
 	// overwrite the root.
-	treeNode = newRoot
-	return nil
+	// treeNode = newRoot
+	// NOTE: CAN'T OVERRIDE
+	return newRoot, nil
 }
 
 // BinaryNode.Rebalance balances the given treeNode using the skew.
 // Returns an error if the given treeNode is nil.
 // Returns nil if there's no error happened during rebalancing.
-func (treeNode *BinaryNode) Rebalance() error {
+func (treeNode *BinaryNode) Rebalance() (*BinaryNode, error){
 	if treeNode == nil{
-		return errors.New("Cannot rebalance the nil treeNode.")
+		return nil, errors.New("Cannot rebalance the nil treeNode.")
 	}
 
 	treeNodeSkew, err := treeNode.Skew()
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	if treeNodeSkew == 2{
 		// calculating right child's skew
 		rightChildSkew, err := treeNode.Right.Skew()
 		if err != nil {
-			return err
+			return nil, err
 		}
 
 		// check the right child skew to rotate if necessary
 		if rightChildSkew < 0{
-			err = treeNode.Right.SubtreeRotateRight()
+			newRoot, err := treeNode.Right.SubtreeRotateRight()
 			if err != nil {
-				return err
+				return nil, err
 			}
+			treeNode = newRoot
 		}
 
-		err = treeNode.SubtreeRotateLeft()
+		newRoot, err := treeNode.SubtreeRotateLeft()
 		if err != nil {
-			return err
+			return nil, err
 		}
-		return nil
+		return newRoot, nil
 	}else if treeNodeSkew == -2{
 		// calculating the left child's skew
 		leftChildSkew, err := treeNode.Left.Skew()
 		if err != nil{
-			return err
+			return nil, err
 		}
 
 		// check the left child skew to rotate if necessary
 		if leftChildSkew > 0{
-			err = treeNode.Left.SubtreeRotateLeft()
+			newRoot, err := treeNode.Left.SubtreeRotateLeft()
 			if err != nil {
-				return err
+				return nil, err
 			}
+			treeNode = newRoot
 		}
 
-		err = treeNode.SubtreeRotateRight()
-		return nil
+		newRoot, err := treeNode.SubtreeRotateRight()
+		return newRoot, nil
 	}
-	return nil
+	return treeNode, nil
 }
 
 // BinaryNode.Maintain maintains the given treeNode's augmentations.
 // Recursively maintain on parents if there's any.
 // Returns an error if the given treeNode is nil.
 // Overwrites the given treeNode with the newly maintained root node.
-func (treeNode *BinaryNode) Maintain() error {
+func (treeNode *BinaryNode) Maintain() (*BinaryNode, error) {
 	if treeNode == nil{
-		return errors.New("Given treeNode is nil.")
+		return nil, errors.New("Given treeNode is nil.")
 	}
-	treeNode.Rebalance()
-	treeNode.SubtreeUpdate()
+	balancedNode, err := treeNode.Rebalance()
+	if err != nil {
+		return nil, err
+	}
+	err = balancedNode.SubtreeUpdate()
+	if err != nil {
+		return nil, err
+	}
 
-	if treeNode.Parent != nil{
-		treeNode.Parent.Maintain()
-		return nil
+	if balancedNode.Parent != nil{
+		maintainedNode, err := balancedNode.Parent.Maintain()
+		if err != nil {
+			return nil, err
+		}
+		return maintainedNode, nil
 	}
-	return nil
+	return balancedNode, nil
 }
 
 // BinaryNode.SubtreeFirst finds and returns the first node in traversal order.
@@ -387,23 +401,23 @@ func (treeRoot *BinaryNode) DeleteNode(node *BinaryNode) (*BinaryNode, error){
 
 // BinaryNode.Insert inserts a new node to the given tree and maintained the augmentations.
 // Also maintains the property of AVL tree.
-func (treeRoot *BinaryNode) Insert(key int, value int) error {
+func (treeRoot *BinaryNode) Insert(key int, value int)(*BinaryNode, error) {
 	if treeRoot != nil{
 		treeRoot.subtreeInsert(key, value)
-		err := treeRoot.Maintain()
+		maintainedNode, err := treeRoot.Maintain()
 		if err != nil{
-			return err
+			return nil, err
 		}
-		return nil
+		return maintainedNode, nil
 	}
 
 	newNode := &BinaryNode{Value: value, Key: key}
 	treeRoot = newNode
-	err := treeRoot.Maintain()
+	maintainedNode, err := treeRoot.Maintain()
 	if err != nil{
-		return err
+		return nil, err
 	}
-	return nil
+	return maintainedNode, nil
 }
 
 // BinaryNode.subtreeInsert inserts a new node with the given key and value
@@ -449,9 +463,9 @@ func (treeRoot *BinaryNode) findRecursion(key int)(*BinaryNode){
 	if treeRoot == nil{
 		return nil
 	}
-	if key > treeRoot.Key {
+	if key < treeRoot.Key {
 		return treeRoot.Left.findRecursion(key)
-	} else if key < treeRoot.Key {
+	} else if key > treeRoot.Key {
 		return treeRoot.Right.findRecursion(key)
 	} else {
 		return treeRoot
@@ -485,16 +499,12 @@ func (treeRoot *BinaryNode) Build(node [][]int){
 	}
 }
 
-func (treeRoot *BinaryNode) BuildTree(keyValues [][]int) error{
+func (treeRoot *BinaryNode) BuildTree(keyValues [][]int) (*BinaryNode, error){
 	if len(keyValues) == 0 || keyValues == nil{
-		return errors.New("Cannot build empty tree.")
+		return nil, errors.New("Cannot build empty tree.")
 	}
-	
-	fmt.Println(treeRoot)
-	//////// unfinish businiess.////////////////////////////////
-	// *treeRoot = &((*treeRoot).buildTreeRecursion(keyValues, 0, len(keyValues) - 1))
-	fmt.Println(treeRoot)
-	return nil
+	root := treeRoot.buildTreeRecursion(keyValues, 0, len(keyValues) - 1)
+	return root, nil
 }
 
 func (treeRoot *BinaryNode) buildTreeRecursion(keyValues [][]int, left int, right int) *BinaryNode{
