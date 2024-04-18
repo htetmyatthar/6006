@@ -55,8 +55,8 @@ func (treeNode *BinaryNode) SubtreeUpdate() error {
 }
 
 // BinaryNode.SubtreeRotateRight right rotates the given subtree(using it's root node) treeNode
-// Returns an error if the given treeNode is nil or if the given treeNode does not have left child.
-// Overwrite's the treeNode(old root) with the newly rotated tree's root.
+// returning the rotated root node. Returns an error if the given treeNode is nil or
+// if the given treeNode does not have left child.
 func (treeNode *BinaryNode) SubtreeRotateRight() (*BinaryNode, error) {
 	if treeNode == nil {
 		return nil, errors.New("Given treeNode is nil.")
@@ -95,17 +95,13 @@ func (treeNode *BinaryNode) SubtreeRotateRight() (*BinaryNode, error) {
 	// update augmentations
 	treeNode.SubtreeUpdate()
 	newRoot.SubtreeUpdate()
-
-	// overwrite the root
-	// treeNode = newRoot
 	// NOTE: WE CAN'T OVERRIDE IT. since golang is pass by value even the pointers.
-
 	return newRoot, nil
 }
 
 // BinaryNode.SubtreeRotateLeft left rotates the given subtree(using it's root node) treeNode
-// Returns an error if the given treeNode is nil or if the given treeNode does not have right child.
-// Overwrite's the treeNode(old root) with the newly rotated tree's root.
+// returning the rotated root node. Returns an error if the given treeNode is nil or
+// if the given treeNode does not have right child.
 func (treeNode *BinaryNode) SubtreeRotateLeft() (*BinaryNode, error) {
 	if treeNode == nil {
 		return nil, errors.New("Given treeNode is nil.")
@@ -144,16 +140,12 @@ func (treeNode *BinaryNode) SubtreeRotateLeft() (*BinaryNode, error) {
 	// update the augmentations
 	treeNode.SubtreeUpdate()
 	newRoot.SubtreeUpdate()
-
-	// overwrite the root.
-	// treeNode = newRoot
-	// NOTE: CAN'T OVERRIDE
 	return newRoot, nil
 }
 
 // BinaryNode.Rebalance balances the given treeNode using the skew.
+// Returns the balanced root node.
 // Returns an error if the given treeNode is nil.
-// Returns nil if there's no error happened during rebalancing.
 func (treeNode *BinaryNode) Rebalance() (*BinaryNode, error) {
 	if treeNode == nil {
 		return nil, errors.New("Cannot rebalance the nil treeNode.")
@@ -207,9 +199,8 @@ func (treeNode *BinaryNode) Rebalance() (*BinaryNode, error) {
 }
 
 // BinaryNode.Maintain maintains the given treeNode's augmentations.
-// Recursively maintain on parents if there's any.
-// Returns an error if the given treeNode is nil.
-// Overwrites the given treeNode with the newly maintained root node.
+// Recursively maintain on parents if there's any, returning the maintained
+// root node at last. Returns an error if the given treeNode is nil.
 func (treeNode *BinaryNode) Maintain() (*BinaryNode, error) {
 	if treeNode == nil {
 		return nil, errors.New("Given treeNode is nil.")
@@ -352,8 +343,9 @@ func (treeRoot *BinaryNode) InsertAfter(node *BinaryNode, value int, key int) er
 	return nil
 }
 
-// BinaryNode.DeleteNode deletes the given node in the given treeRoot and returns the maintained tree and the deleted node.
-// Returns error if the treeRoot is nil or node is nil.
+// BinaryNode.DeleteNode deletes the given node in the given treeRoot returning
+// the maintained root node as the first return value and the deleted node as the second return value.
+// Returns an error if the treeRoot is nil or node is nil
 // After deleting the given node the tree is balanced and maintained any augmentations.
 func (treeRoot *BinaryNode) DeleteNode(node *BinaryNode) (*BinaryNode, *BinaryNode, error) {
 	if treeRoot == nil {
@@ -401,8 +393,9 @@ func (treeRoot *BinaryNode) DeleteNode(node *BinaryNode) (*BinaryNode, *BinaryNo
 	}
 }
 
-// BinaryNode.Insert inserts a new node to the given tree and maintained the augmentations.
-// Also maintains the property of AVL tree.
+// BinaryNode.Insert inserts a new node to the given tree and maintained the augmentations,
+// meanwhile also maintaining the property of AVL tree.
+// Returns the maintained balanaced root node after inserting.
 func (treeRoot *BinaryNode) Insert(key int, value int) (*BinaryNode, error) {
 	if treeRoot != nil {
 		treeRoot.subtreeInsert(key, value)
