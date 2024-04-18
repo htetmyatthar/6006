@@ -16,5 +16,6 @@ In this part we will explore binary trees and it's properties plus it's interfac
 
 
 ## go
+- [set AVL tree](./go/AVL_tree)
 
 ## python
