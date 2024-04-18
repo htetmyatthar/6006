@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func main(){
+func main() {
 	fmt.Println("Building a tree.")
 	givenValues := [][]int{
 		{1, 2},
@@ -67,7 +67,7 @@ func main(){
 	fmt.Println("Left rotating the root tree:")
 	fmt.Println("Org tree: ")
 	newRoot.PrintPreOrder()
-	newTree,err = newRoot.SubtreeRotateLeft()
+	newTree, err = newRoot.SubtreeRotateLeft()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -76,4 +76,46 @@ func main(){
 	fmt.Println("---------------------------------------------")
 
 	fmt.Println("Inserting a new node with the key 8 and value 99 after node with key 7.")
+	node, err = newTree.Find(7)
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = newTree.InsertAfter(node, 99, 8)
+	if err != nil {
+		log.Fatal(err)
+	}
+	newTree.PrintPreOrder()
+	fmt.Println("---------------------------------------------")
+
+	fmt.Println("Inserting a new node with the key 10 and value 77 before node with key 11.")
+	node, err = newTree.Find(11)
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = newTree.InsertBefore(node, 77, 10)
+	if err != nil {
+		log.Fatal(err)
+	}
+	newTree.PrintPreOrder()
+	fmt.Println("---------------------------------------------")
+
+	fmt.Println("Deleting nodes with the key of 1 and 5.")
+	newTree, value, err := newTree.Delete(1)
+	if err != nil {
+		log.Fatal(err)
+	}
+	newTree.PrintPreOrder()
+	fmt.Println("\ndeleted node's value:", value)
+	fmt.Println("---------------------------------------------")
+	newTree, value, err = newTree.Delete(5)
+	if err != nil {
+		log.Fatal(err)
+	}
+	newTree.PrintPreOrder()
+	fmt.Println("\ndeleted node's value:", value)
+	fmt.Println("---------------------------------------------")
+
+	fmt.Println("\ndeleted tree:")
+	newTree.PrintPreOrder()
+	fmt.Println("---------------------------------------------")
 }
