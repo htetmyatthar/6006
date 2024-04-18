@@ -104,18 +104,21 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	newTree.PrintPreOrder()
 	fmt.Println("\ndeleted node's value:", value)
-	fmt.Println("---------------------------------------------")
 	newTree, value, err = newTree.Delete(5)
 	if err != nil {
 		log.Fatal(err)
 	}
-	newTree.PrintPreOrder()
 	fmt.Println("\ndeleted node's value:", value)
+	fmt.Println("\ndeleted final tree:")
+	newTree.PrintPreOrder()
 	fmt.Println("---------------------------------------------")
 
-	fmt.Println("\ndeleted tree:")
+	fmt.Println("Inserting a new node automatically and maintain balance")
+	newTree, err = newTree.Insert(4, 1000)
+	if err != nil {
+		log.Fatal(err)
+	}
 	newTree.PrintPreOrder()
 	fmt.Println("---------------------------------------------")
 }

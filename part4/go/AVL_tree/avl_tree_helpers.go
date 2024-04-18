@@ -155,7 +155,6 @@ func (treeNode *BinaryNode) SubtreeRotateLeft() (*BinaryNode, error) {
 // Returns an error if the given treeNode is nil.
 // Returns nil if there's no error happened during rebalancing.
 func (treeNode *BinaryNode) Rebalance() (*BinaryNode, error) {
-	println("blanacing node:", treeNode.Key)
 	if treeNode == nil {
 		return nil, errors.New("Cannot rebalance the nil treeNode.")
 	}
