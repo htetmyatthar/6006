@@ -6,6 +6,9 @@ import (
 )
 
 // FIX: HOW TO KNOW WHICH TYPE OF ELEMENT IN THE LIST.ELEMENT.VALUE?? HOW TO USE LIST PROPERLY?
+// NOTE: You can do type assertions to the empty interface{} or any as follows:
+// e.(Edge).weight, where e is any or empty interface{}
+// this means extracting the Edge from the empty interface if it is, else panic.
 
 // Graph represents a graph that has |V| of vertices
 // and |E| number of edges. A graph is represented in a adjacency
