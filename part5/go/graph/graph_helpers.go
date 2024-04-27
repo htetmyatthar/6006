@@ -3,19 +3,28 @@ package main
 import (
 	l "container/list"
 	"errors"
+	"fmt"
+)
+
+var (
+	ErrDuplicateVertix = errors.New("Invalid vertix name. There's a duplicate name.")
+	ErrVertixNotFound  = errors.New("Invalid vertix name. There's no vertix with the given name.")
+	ErrSelfEdge        = errors.New("Invalid edge. Self edges are not allowed.")
 )
 
 // FIX: HOW TO KNOW WHICH TYPE OF ELEMENT IN THE LIST.ELEMENT.VALUE?? HOW TO USE LIST PROPERLY?
 // NOTE: You can do type assertions to the empty interface{} or any as follows:
-// e.(Edge).weight, where e is any or empty interface{}
+// e.(*Edge).weight, where e is any or empty interface{}
 // this means extracting the Edge from the empty interface if it is, else panic.
 
 // Graph represents a graph that has |V| of vertices
 // and |E| number of edges. A graph is represented in a adjacency
 // list, using linked list to store the edges as values of adj map and
-// vertices as keys of the adj map.
+// vertices as keys of the adj map. This graph implementation is
+// the directed graph implementation.
 type Graph struct {
 	totalVertices int
+	totalEdges    int
 	adjList       map[rune]*Vertix
 }
 
@@ -39,68 +48,115 @@ type Edge struct {
 // Init initialize a graph with the given vertices if there are any.
 func InitGraph(names ...rune) (*Graph, error) {
 	nVertices := len(names)
-	// checking the duplicate vertix names.
+
 	nameMap := make(map[rune]struct{}, nVertices)
 	for _, name := range names {
-		if _, ok := nameMap[name]; ok {
-			return nil, errors.New("Invalid vertix names. There's a duplicate name.")
+		if _, exists := nameMap[name]; exists {
+			return nil, ErrDuplicateVertix
 		}
 		nameMap[name] = struct{}{}
 	}
-	// init graph with the given vertices.
+
 	graph := &Graph{
 		totalVertices: nVertices,
 		adjList:       make(map[rune]*Vertix, nVertices),
 	}
+
 	for _, name := range names {
-		vertix := &Vertix{vertixName: name, edges: l.New()}
-		graph.adjList[name] = vertix
+		graph.adjList[name] = &Vertix{vertixName: name, edges: l.New()}
 	}
 	return graph, nil
 }
 
+// Density returns the current directed graph's density.
+// The greater it approaches to the 1 the denser and vice versa.
+func (G *Graph) Density() float32 {
+	maxEdges := G.totalVertices * (G.totalVertices - 1)
+	return float32(G.totalEdges) / float32(maxEdges)
+}
+
 // AddVertix create a vertix and adds that to the graph
-// and returns the modified graph
 func (G *Graph) AddVertix(name rune) error {
-	// check that the name is already in the graph
 	if _, exists := G.adjList[name]; exists {
-		return errors.New("Invalid vertix name. There's already a vertix with the given name.")
+		return ErrDuplicateVertix
 	}
 	G.totalVertices++
-	vertix := &Vertix{vertixName: name, edges: l.New()}
-	G.adjList[name] = vertix
+	G.adjList[name] = &Vertix{vertixName: name, edges: l.New()}
 	return nil
 }
 
+// RemoveVertix removes a vertix from the graph and the edges that is realted to the vertix.
 func (G *Graph) RemoveVertix(name rune) error {
-	if _, exists := G.adjList[name]; !exists {
-		return errors.New("Invalid vertix name. There's no vertix with the given dest.")
+	var vertix *Vertix
+	var exists bool
+
+	if vertix, exists = G.adjList[name]; !exists {
+		return ErrVertixNotFound
 	}
-	// TODO: remove the vertix
+
+	// for every outgoing edges from this vertix
+	for e := vertix.edges.Front(); e != nil; e = e.Next() {
+		G.adjList[e.Value.(*Edge).vertixName].indegree--
+		G.totalEdges--
+	}
+	G.totalVertices--
+	// NOTE: removing a vertix effectively removes every edge that is associated with it.
+	delete(G.adjList, name)
+
+	// for every incoming edges to this vertix
+	for _, value := range G.adjList {
+		for e := value.edges.Front(); e != nil; e = e.Next() {
+			if e.Value.(*Edge).vertixName == name {
+				value.outDegree--
+				G.totalEdges--
+				value.edges.Remove(e)
+			}
+		}
+	}
 	return nil
 }
 
 // AddEdge adds an edge to the given graph
 func (G *Graph) AddEdge(weight int, src, dest rune) error {
-	if _, exists := G.adjList[src]; !exists {
-		return errors.New("Invalid src vertix name. There's no vertix with the given src.")
-	} else if _, exists = G.adjList[dest]; !exists {
-		return errors.New("Invalid dest vertix name. There's no vertix with the given dest.")
+	var srcVertix *Vertix
+	var destVertix *Vertix
+	var exists bool
+
+	if src == dest {
+		return ErrSelfEdge
+	} else if srcVertix, exists = G.adjList[src]; !exists {
+		return ErrVertixNotFound
+	} else if destVertix, exists = G.adjList[dest]; !exists {
+		return ErrVertixNotFound
 	}
-	edge := &Edge{weight: weight, vertixName: dest}
-	G.adjList[dest].indegree++
-	G.adjList[src].outDegree++
-	G.adjList[src].edges.PushBack(edge)
+	G.totalEdges++
+	destVertix.indegree++
+	srcVertix.outDegree++
+	srcVertix.edges.PushBack(&Edge{weight: weight, vertixName: dest})
 	return nil
 }
 
 func (G *Graph) RemoveEdge(src, dest rune) error {
-	if _, exists := G.adjList[src]; !exists {
-		return errors.New("Invalid vertix name. There's no vertix with the given dest.")
-	} 
-	for e := G.adjList[src].edges.Front(); e != nil; e.Next(){
-		// FIND THE ELEMENT FIRST.
+	var srcVertix *Vertix
+	var destVertix *Vertix
+	var exists bool
+
+	if src == dest {
+		return ErrSelfEdge
+	} else if destVertix, exists = G.adjList[dest]; !exists {
+		return ErrVertixNotFound
+	} else if srcVertix, exists = G.adjList[src]; !exists {
+		return ErrVertixNotFound
 	}
+	for e := srcVertix.edges.Front(); e != nil; e = e.Next() {
+		if e.Value.(*Edge).vertixName == dest {
+			srcVertix.edges.Remove(e)
+			break
+		}
+	}
+	G.totalEdges--
+	destVertix.indegree--
+	srcVertix.outDegree--
 	return nil
 }
 
@@ -109,7 +165,7 @@ func (G *Graph) GetIndegree(name rune) (int, error) {
 	var vertix *Vertix
 	var ok bool
 	if vertix, ok = G.adjList[name]; !ok {
-		return 0, errors.New("Invalid vertix name. There's no vertix with the given name.")
+		return 0, ErrVertixNotFound
 	}
 	return vertix.indegree, nil
 }
@@ -119,16 +175,26 @@ func (G *Graph) GetOutdegree(name rune) (int, error) {
 	var vertix *Vertix
 	var ok bool
 	if vertix, ok = G.adjList[name]; !ok {
-		return 0, errors.New("Invalid vertix name. There's no vertix with the given name.")
+		return 0, ErrVertixNotFound
 	}
 	return vertix.outDegree, nil
 }
 
 // GetInNeighbors gets the incoming neighbors of the given vertix
-func (G *Graph) GetInNeighbors(vertix rune)
+func (G *Graph) GetInNeighbors(vertix rune) {}
 
 // GetOutNeighbors gets the outgoing neighbors of the given vertix
-func (G *Graph) GetOutNeighbors(vertix rune)
+func (G *Graph) GetOutNeighbors(vertix rune) {}
 
 // PrintAdjList prints out the adjacency list to the stdout.
-func (G *Graph) PrintAdjList()
+func (G *Graph) PrintAdjList() {
+	fmt.Println("Density:", G.Density())
+	for key, value := range G.adjList {
+		fmt.Printf("Vertix: %c, InDeg: %v, OutDeg: %v\nEdges:", key, value.indegree, value.outDegree)
+		for e := value.edges.Front(); e != nil; e = e.Next() {
+			edge := e.Value.(*Edge)
+			fmt.Printf(" %c(w: %v),", edge.vertixName, edge.weight)
+		}
+		fmt.Println()
+	}
+}
