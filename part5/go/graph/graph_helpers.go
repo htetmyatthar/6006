@@ -181,10 +181,37 @@ func (G *Graph) GetOutdegree(name rune) (int, error) {
 }
 
 // GetInNeighbors gets the incoming neighbors of the given vertix
-func (G *Graph) GetInNeighbors(vertix rune) {}
+func (G *Graph) GetInNeighbors(name rune) ([]rune, error) {
+	var vertix *Vertix
+	var ok bool
+	if vertix , ok = G.adjList[name]; !ok{
+		return nil, ErrVertixNotFound
+	}
+	neighbors := make([]rune, 0, vertix.indegree)
+	for key, value := range G.adjList {
+		for e := value.edges.Front(); e != nil; e = e.Next() {
+			if e.Value.(*Edge).vertixName == name {
+				neighbors = append(neighbors, key)
+				break
+			}
+		}
+	}
+	return neighbors, nil
+}
 
 // GetOutNeighbors gets the outgoing neighbors of the given vertix
-func (G *Graph) GetOutNeighbors(vertix rune) {}
+func (G *Graph) GetOutNeighbors(name rune) ([]rune, error) {
+	var vertix *Vertix
+	var ok bool
+	if vertix, ok = G.adjList[name]; !ok {
+		return nil, ErrVertixNotFound
+	}
+	neighbors := make([]rune, 0, vertix.outDegree)
+	for e := vertix.edges.Front(); e != nil; e = e.Next() {
+		neighbors = append(neighbors, e.Value.(*Edge).vertixName)
+	}
+	return neighbors, nil
+}
 
 // PrintAdjList prints out the adjacency list to the stdout.
 func (G *Graph) PrintAdjList() {

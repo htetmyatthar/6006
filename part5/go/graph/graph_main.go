@@ -50,6 +50,26 @@ func main() {
 	graph.PrintAdjList()
 	fmt.Println("-------------------------")
 
+	fmt.Println("Printing out all the incoming neighbors of a.")
+	neighbors := graph.GetInNeighbors('a')
+	fmt.Print("Neighbors: ")
+	for _, value := range neighbors{
+		fmt.Printf("%c ", value)
+	}
+	fmt.Println()
+	graph.PrintAdjList()
+	fmt.Println("-------------------------")
+
+	fmt.Println("Printing out all the outgoing neighbors of c.")
+	neighbors = graph.GetOutNeighbors('c')
+	fmt.Print("Neighbors: ")
+	for _, value := range neighbors{
+		fmt.Printf("%c ", value)
+	}
+	fmt.Println()
+	graph.PrintAdjList()
+	fmt.Println("-------------------------")
+
 	fmt.Println("Removing a vertix from the graph.")
 	err = graph.RemoveVertix('a')
 	if err != nil {
@@ -57,11 +77,6 @@ func main() {
 	}
 	graph.PrintAdjList()
 	fmt.Println("-------------------------")
-}
-
-type Person struct {
-	name string
-	age  int
 }
 
 // AddEdges add the edges in the given
