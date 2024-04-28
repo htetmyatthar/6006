@@ -51,7 +51,10 @@ func main() {
 	fmt.Println("-------------------------")
 
 	fmt.Println("Printing out all the incoming neighbors of a.")
-	neighbors := graph.GetInNeighbors('a')
+	neighbors, err := graph.GetInNeighbors('a')
+	if err != nil{
+		fmt.Println(err)
+	}
 	fmt.Print("Neighbors: ")
 	for _, value := range neighbors{
 		fmt.Printf("%c ", value)
@@ -61,7 +64,10 @@ func main() {
 	fmt.Println("-------------------------")
 
 	fmt.Println("Printing out all the outgoing neighbors of c.")
-	neighbors = graph.GetOutNeighbors('c')
+	neighbors, err = graph.GetOutNeighbors('c')
+	if err != nil{
+		fmt.Println(err)
+	}
 	fmt.Print("Neighbors: ")
 	for _, value := range neighbors{
 		fmt.Printf("%c ", value)
