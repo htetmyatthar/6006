@@ -61,7 +61,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(parentVertices)
 	printParents(parentVertices)
 	fmt.Println("-----------------------------------")
 
