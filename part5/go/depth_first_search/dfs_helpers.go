@@ -4,7 +4,8 @@ package main
 // meaning the order giving back from the map is not the same for every time a function
 // call is being ran.
 
-// Dfs is the depth_first_search algorithm.
+// Dfs is the depth_first_search algorithm for finding the connected components
+// of the startVertex returning the parent vertices map. Returns an error if there's any.
 func (G *Graph) Dfs(startVertex rune) (map[rune]rune, error) {
 	if G == nil {
 		return nil, ErrGraphNil
@@ -21,7 +22,8 @@ func (G *Graph) Dfs(startVertex rune) (map[rune]rune, error) {
 	return parentVertices, nil
 }
 
-// returning the visited vertices in order.
+// dfsRecursion is the depth_first_search algorithm helper method for finding the connected components
+// returning the topological order of the graph.
 func (G *Graph) dfsRecursion(source rune, parentVertices map[rune]rune, queue []rune) []rune {
 	for e := G.adjList[source].edges.Front(); e != nil; e = e.Next() {
 		visitingVertex := e.Value.(*Edge).vertixName
@@ -34,12 +36,14 @@ func (G *Graph) dfsRecursion(source rune, parentVertices map[rune]rune, queue []
 	return queue
 }
 
-// FullDfs is for finding out how the graph is connected.
-func (G *Graph) FullDfs() (map[rune]rune, error) {
+// FullDfs is for finding the connected components of the whole graph.
+// Returning parent vertices, and the topological order of the graph.
+// Returns an error if there's any.
+func (G *Graph) FullDfs() (map[rune]rune,[]rune, error) {
 	if G == nil {
-		return nil, ErrGraphNil
+		return nil, nil, ErrGraphNil
 	}
-	var queue []rune = make([]rune, 0, G.totalVertices)
+	var order []rune = make([]rune, 0, G.totalVertices)
 	parentVertices := make(map[rune]rune, G.totalVertices)
 
 	// for every vertex in the graph
@@ -49,8 +53,8 @@ func (G *Graph) FullDfs() (map[rune]rune, error) {
 			// mark it as visited vertex
 			parentVertices[vertex] = vertex
 			// run dfs on that vertex
-			queue = G.dfsRecursion(vertex, parentVertices, queue)
+			order = G.dfsRecursion(vertex, parentVertices, order)
 		}
 	}
-	return parentVertices, nil
+	return parentVertices, order, nil
 }

@@ -39,11 +39,17 @@ func main(){
 	fmt.Println("-----------------------------------")
 
 	fmt.Println("This is the full dfs implementation results.")
-	parentVertices, err = graph.FullDfs()
+	parentVertices, order, err := graph.FullDfs()
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	fmt.Println("This is the list of parent vertices.")
 	printParents(parentVertices)
+	fmt.Println("-----------------------------------")
+
+	fmt.Println("This is the list of order.")
+	printOrder(order)
 	fmt.Println("-----------------------------------")
 }
 
@@ -52,6 +58,13 @@ func main(){
 func printParents(ParentVertices map[rune]rune){
 	for vertex, parent := range ParentVertices{
 		fmt.Printf("Vertex: %c, parent: %c\n", vertex, parent)
+	}
+}
+
+func printOrder(ParentVertices []rune){
+	length := len(ParentVertices)
+	for i := length - 1; i >= 0; i--{
+		fmt.Printf("Vertex: %c\n", ParentVertices[i])
 	}
 }
 
