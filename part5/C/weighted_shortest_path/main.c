@@ -47,7 +47,7 @@ int main(void)
 	* used when testing for creating duplicated graph.
 	* printf("Shortest paths from source 'a': \n");
 	*/
-	printf("Shortest paths from source 'e': \n");
+	printf("Shortest paths from source 'a': \n");
 	shortest_distances *e_shortest_paths = DAG_relaxation(Graph, 'a');
 	printf("Number of vertices that can reach from source: %i\n", e_shortest_paths->size);
 	print_shortest_paths(e_shortest_paths);
