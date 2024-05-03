@@ -27,3 +27,5 @@ In this part we will explore about the basics of graphs and their specialities.
 - [breath_first_search](./go/breath_first_search)
 
 - [depth_first_search](./go/depth_first_search)
+
+- [weighted_shortest_path](./go/weighted_shortest_path) in a DAG
