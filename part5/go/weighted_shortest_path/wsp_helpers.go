@@ -77,27 +77,22 @@ func (G *Graph) DAGRelaxation(src rune) (*ShortestDistance, error) {
 	for i := len(topoOrder) - 1; i >= 0; i-- {
 		// for every adj^+ of current vertex
 		for e := G.adjList[topoOrder[i]].edges.Front(); e != nil; e = e.Next() {
-			G.tryToRelax(sd, topoOrder[i], e.Value.(*Edge).vertixName)
+			G.tryToRelax(sd, topoOrder[i], e.Value.(*Edge))
 		}
 	}
 	return sd, nil
 }
 
-func (G *Graph) tryToRelax(sd *ShortestDistance, src rune, dest rune) {
+func (G *Graph) tryToRelax(sd *ShortestDistance, src rune, destNode *Edge) {
 
 	// find the edgeweight from src to dest.
 	// vertices exists or not are already checked in dfs.
 	var edgeWeight float64
+	dest := destNode.vertixName
 	if src == dest {
 		edgeWeight = 0.0
 	} else {
-		for e := G.adjList[src].edges.Front(); e != nil; e = e.Next() {
-			edge := e.Value.(*Edge)
-			if edge.vertixName == dest {
-				edgeWeight = float64(edge.weight)
-				break
-			}
-		}
+		edgeWeight = float64(destNode.weight)
 	}
 
 	// if d[v] > d[u] + w(u, v)
