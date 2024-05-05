@@ -291,7 +291,7 @@ shortest_distances* Bellman_Ford_modified(graph* graph, char source, char parent
 	free_dup_graph(heads, vertices, vertices_size);
 	
 	/*
-	 *	SET SHORTEST PATH DISTANCES FOR EVERY VERTICES FOR USING |V| - 1 edges.
+	 *	SET SHORTEST PATH DISTANCES FOR EVERY VERTICES FOR USING |V| edges.
 	 */
 	for(int i = 0; i < vertices_size; i++)
 	{
