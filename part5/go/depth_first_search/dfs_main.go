@@ -31,15 +31,19 @@ func main(){
 	fmt.Println("-----------------------------------")
 
 	fmt.Println("This is the dfs with source vertex a results.")
-	parentVertices, err := graph.Dfs('a')
+	parentVertices, order, err := graph.Dfs('a')
 	if err != nil {
 		log.Fatal(err)
 	}
 	printParents(parentVertices)
 	fmt.Println("-----------------------------------")
 
+	fmt.Println("This is the list of order from the source 'a'.")
+	printOrder(order)
+	fmt.Println("-----------------------------------")
+
 	fmt.Println("This is the full dfs implementation results.")
-	parentVertices, order, err := graph.FullDfs()
+	parentVertices, order, err = graph.FullDfs()
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -6,20 +6,20 @@ package main
 
 // Dfs is the depth_first_search algorithm for finding the connected components
 // of the startVertex returning the parent vertices map. Returns an error if there's any.
-func (G *Graph) Dfs(startVertex rune) (map[rune]rune, error) {
+func (G *Graph) Dfs(startVertex rune) (map[rune]rune, []rune, error) {
 	if G == nil {
-		return nil, ErrGraphNil
+		return nil, nil, ErrGraphNil
 	}
 	var vertex *Vertix
 	var exists bool
 	if vertex, exists = G.adjList[startVertex]; !exists {
-		return nil, ErrVertexNotFound
+		return nil, nil, ErrVertexNotFound
 	}
 	queue := make([]rune, 0, vertex.outDegree)
 	parentVertices := make(map[rune]rune, G.totalVertices)
 	parentVertices[startVertex] = startVertex
-	G.dfsRecursion(startVertex, parentVertices, queue)
-	return parentVertices, nil
+	queue = G.dfsRecursion(startVertex, parentVertices, queue)
+	return parentVertices, queue, nil
 }
 
 // dfsRecursion is the depth_first_search algorithm helper method for finding the connected components
@@ -39,7 +39,7 @@ func (G *Graph) dfsRecursion(source rune, parentVertices map[rune]rune, queue []
 // FullDfs is for finding the connected components of the whole graph.
 // Returning parent vertices, and the topological order of the graph.
 // Returns an error if there's any.
-func (G *Graph) FullDfs() (map[rune]rune,[]rune, error) {
+func (G *Graph) FullDfs() (map[rune]rune, []rune, error) {
 	if G == nil {
 		return nil, nil, ErrGraphNil
 	}
