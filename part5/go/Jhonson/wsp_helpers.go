@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 type ShortestDistance struct {
@@ -45,42 +46,42 @@ type DistanceNode struct {
 	Distance     float64 // distance from the src to the dest.
 }
 
-// // DAGRelaxation finds the weighted shortest paths
-// // from the src vertex.
-// func (G *Graph) DAGRelaxation(src rune) (*ShortestDistance, error) {
-// 	if G == nil {
-// 		return nil, ErrGraphNil
-// 	}
-// 	var exists bool
-// 	if _, exists = G.adjList[src]; !exists {
-// 		return nil, ErrVertexNotFound
-// 	}
-// 	// run dfs from the src.
-// 	_, topoOrder, err := G.Dfs(src)
-// 	printOrder(topoOrder)
-// 	if err != nil {
-// 		return nil, err
-// 	}
-// 	sd := &ShortestDistance{Src: src, Distances: make(map[rune]*DistanceNode, len(topoOrder))}
-//
-// 	// initialize the shortest distances to the inf for every vertices in topoOrder.
-// 	// -infinity is for negative weight cycles and in DAG there's no negative weight cycles.
-// 	for _, vertex := range topoOrder {
-// 		sd.Distances[vertex] = &DistanceNode{Distance: math.Inf(0)}
-// 	}
-//
-// 	// add the source vertex.
-// 	sd.Distances[src] = &DistanceNode{ParentVertex: src, Distance: 0.0}
-//
-// 	// for every vertices in topo sort.
-// 	for i := len(topoOrder) - 1; i >= 0; i-- {
-// 		// for every adj^+ of current vertex
-// 		for e := G.adjList[topoOrder[i]].edges.Front(); e != nil; e = e.Next() {
-// 			G.tryToRelax(sd, topoOrder[i], e.Value.(*Edge))
-// 		}
-// 	}
-// 	return sd, nil
-// }
+// DAGRelaxation finds the weighted shortest paths
+// from the src vertex.
+func (G *Graph) DAGRelaxation(src rune) (*ShortestDistance, error) {
+	if G == nil {
+		return nil, ErrGraphNil
+	}
+	var exists bool
+	if _, exists = G.adjList[src]; !exists {
+		return nil, ErrVertexNotFound
+	}
+	// run dfs from the src.
+	_, topoOrder, err := G.Dfs(src)
+	printOrder(topoOrder)
+	if err != nil {
+		return nil, err
+	}
+	sd := &ShortestDistance{Src: src, Distances: make(map[rune]*DistanceNode, len(topoOrder))}
+
+	// initialize the shortest distances to the inf for every vertices in topoOrder.
+	// -infinity is for negative weight cycles and in DAG there's no negative weight cycles.
+	for _, vertex := range topoOrder {
+		sd.Distances[vertex] = &DistanceNode{Distance: math.Inf(0)}
+	}
+
+	// add the source vertex.
+	sd.Distances[src] = &DistanceNode{ParentVertex: src, Distance: 0.0}
+
+	// for every vertices in topo sort.
+	for i := len(topoOrder) - 1; i >= 0; i-- {
+		// for every adj^+ of current vertex
+		for e := G.adjList[topoOrder[i]].edges.Front(); e != nil; e = e.Next() {
+			G.tryToRelax(sd, topoOrder[i], e.Value.(*Edge))
+		}
+	}
+	return sd, nil
+}
 
 func (G *Graph) tryToRelax(sd *ShortestDistance, src rune, destNode *Edge) bool {
 
