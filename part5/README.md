@@ -31,3 +31,7 @@ In this part we will explore about the basics of graphs and their specialities.
 - [weighted_shortest_path](./go/weighted_shortest_path) in a DAG
 
 - [Bellman-Ford](./go/Bellman-Ford)
+
+- [Dijkstra](./go/Dijkstra)
+
+- [Jhonson](./go/Jhonson)'s all pairs shortest paths
